@@ -1,0 +1,226 @@
+:root {
+    --indigo: #818cf8;
+    --yellow: #fcd34d;
+    --card-white: rgba(255, 255, 255, 0.75);
+}
+
+/* ===================================================
+   1. NAVBAR
+   =================================================== */
+.navbar {
+    min-height: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.navbar-brand {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    line-height: 0 !important;
+}
+
+.navbar-brand img {
+    vertical-align: middle;
+    display: block; 
+    transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    line-height: 1;
+    color: #444 !important;
+}
+.navbar-nav .nav-link:hover {
+    color: var(--indigo) !important;
+}
+
+
+
+/* ===================================================
+   2. NÚT BẤM
+   =================================================== */
+.btn-indigo { 
+    background: linear-gradient(to right, #a5b4fc, #818cf8) !important;
+    color: white !important;
+    border: none !important;
+    transition: all 0.3s ease; 
+}
+
+.btn-yellow { 
+    background: linear-gradient(to right, #fcd34d, #fbbf24) !important;
+    color: #000000 !important;
+    border: none !important;
+    font-weight: 700 !important;
+    transition: all 0.2s ease; 
+}
+
+.btn-indigo:hover, .btn-yellow:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-pill { border-radius: 50px !important; }
+
+/* ===================================================
+   3. BACKGROUND & LAYOUT
+   =================================================== */
+body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background-image: url('/img/background.png'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.hero-container {
+    margin-top: 0 !important; 
+    padding-top: 0 !important;
+}
+
+.hero-card {
+    background: var(--card-white);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+    margin-top: -10px;
+    backdrop-filter: blur(10px);
+}
+
+.hero-title { font-size: 2.8rem; font-weight: 700; color: #2d2d2d; }
+
+.feature-card {
+    background: var(--card-white);
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.4);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.icon-box {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.05);
+}
+/* Footer Styles */
+.footer-bar {
+    background: var(--card-white);
+    border-radius: 15px;
+}
+
+.footer-links a {
+    color: #444;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.footer-content {
+    background: var(--card-white);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+}
+
+.footer-content h6 {
+    color: var(--indigo);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.footer-content a:hover {
+    color: var(--indigo) !important;
+}
+
+/* Màu cho Facebook */
+.social-icons a .bi-facebook {
+    color: #1877F2 !important;
+}
+
+/* Màu cho Instagram */
+.social-icons a .bi-instagram {
+    color: #E4405F !important;
+}
+
+/* Màu cho Youtube */
+.social-icons a .bi-youtube {
+    color: #FF0000 !important;
+}
+.social-icons a i {
+    font-size: 1.5rem !important; /* Bạn có thể tăng lên 1.8rem hoặc 2rem nếu muốn to hơn nữa */
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+}
+.social-icons {
+    margin-left: 20px; /* Bạn có thể thay đổi số này (10px, 15px, 25px...) cho đến khi vừa mắt */
+    display: flex;     /* Đảm bảo các icon nằm trên một hàng */
+    gap: 15px;         /* Khoảng cách giữa các icon */
+}
+/* Hiệu ứng chung khi hover */
+.social-icons a:hover {
+    opacity: 0.8;
+    transform: scale(1.2); /* Phóng to nhẹ icon khi hover */
+}
+
+/* ===================================================
+   4.RESPONSIVE
+   =================================================== */
+@media (max-width: 991.98px) {
+    .navbar-brand img {
+        width: 150px !important;
+    }
+
+    .navbar-collapse {
+        background: rgba(255, 255, 255, 0.98);
+        padding: 25px !important;
+        border-radius: 20px;
+        margin-top: 20px !important;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    .navbar-nav {
+        margin-bottom: 25px !important;
+        gap: 15px !important;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1.2rem;
+        padding: 10px 0 !important;
+    }
+    .hero-container {
+        margin-top: 20px !important; 
+    }
+  
+    .d-flex.gap-3 {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .d-flex.gap-3 .btn {
+        width: 100%;
+        padding: 12px !important;
+    }
+}
+.bg-indigo {
+    background: linear-gradient(135deg, #a5b4fc, #818cf8);
+}
+
+.text-indigo {
+    color: #818cf8;
+    text-decoration: none;
+}
+
+.form-control:focus {
+    border-color: var(--indigo);
+    box-shadow: 0 0 0 0.25rem rgba(129, 140, 248, 0.25);
+}
