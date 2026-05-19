@@ -7,49 +7,55 @@ $(document).ready(function() {
     const EMAILJS_SERVICE_ID = "service_k8oks5q";    
     const EMAILJS_TEMPLATE_ID = "template_2a1jq46";  
     
-    emailjs.init(EMAILJS_PUBLIC_KEY);
+   emailjs.init(EMAILJS_PUBLIC_KEY);
 
-    // Hàm lấy/lưu dữ liệu LocalStorage
+    // Hàm phụ trợ quản lý LocalStorage
     function getUsersFromStorage() { return JSON.parse(localStorage.getItem('moonsilk_users')) || []; }
     function saveUsersToStorage(users) { localStorage.setItem('moonsilk_users', JSON.stringify(users)); }
 
-    // HÀM BỔ TRỢ: Hiển thị lỗi trực tiếp lên giao diện UI
+    // Hàm phụ trợ kích hoạt thông báo lỗi đỏ trực quan
     function showError($input, message) {
-        $input.addClass('is-invalid'); 
-        $input.siblings('.invalid-feedback').text(message).show(); 
+        $input.addClass('is-invalid');
+        $input.siblings('.invalid-feedback').text(message).show();
     }
 
-    // TỰ ĐỘNG XÓA LỖI TRÊN GIAO DIỆN KHI NGƯỜI DÙNG ĐANG GÕ
+    // Làm sạch lỗi real-time khi người dùng bắt đầu gõ lại dữ liệu
     $('form input').on('input', function() {
-        $(this).removeClass('is-invalid'); 
+        $(this).removeClass('is-invalid');
         $(this).siblings('.invalid-feedback').hide();
-        $('#loginError').addClass('d-none'); 
+        $('#loginError').addClass('d-none');
+        $('#loginSuccess').addClass('d-none'); // Ẩn thông báo thành công cũ khi có tương tác mới
     });
 
-    // Tự động điền email đã lưu khi load trang lần đầu
+    // Tự động kiểm tra và điền Email cũ từ bộ nhớ khi tải trang
     const rememberedEmail = localStorage.getItem('moonsilk_email');
     if (rememberedEmail) { $('#userEmail').val(rememberedEmail); }
 
-    // TỰ ĐỘNG XÓA LỖI ĐỎ & RESET FORM KHI THOÁT/ĐÓNG MODAL
+    // Xóa sạch trạng thái lỗi và dữ liệu thừa khi đóng Modal bất kỳ
     $('.modal').on('hidden.bs.modal', function () {
         const $form = $(this).find('form');
         if ($form.length > 0) {
-            $form[0].reset(); 
-            $form.find('input').removeClass('is-invalid'); 
+            $form[0].reset();
+            $form.find('input').removeClass('is-invalid');
             $form.find('.invalid-feedback').hide();
         }
-        $('#loginError').addClass('d-none'); 
+        $('#loginError').addClass('d-none');
         
+        // Reset trạng thái form quên mật khẩu về Bước 1 ban đầu
+        $('#forgotStep1').removeClass('d-none');
+        $('#forgotStep2').addClass('d-none');
+        $('#forgotModalTitle').text('Quên mật khẩu');
+        $('#forgotModalDesc').text('Nhập email của bạn để nhận mã OTP khôi phục qua Email.');
+
         const currentRemembered = localStorage.getItem('moonsilk_email');
         if (currentRemembered) { $('#userEmail').val(currentRemembered); }
     });
 
     // ===================================================
-    // XỬ LÝ FORM ĐĂNG KÝ (BỎ ALERT -> CHUYỂN MODAL TỰ ĐỘNG)
+    // XỬ LÝ FORM ĐĂNG KÝ (VALIDATION GIAO DIỆN)
     // ===================================================
     $('#registerForm').on('submit', function(e) {
         e.preventDefault();
-        
         $('#registerForm input').removeClass('is-invalid');
         $('#registerForm .invalid-feedback').hide();
 
@@ -57,25 +63,21 @@ $(document).ready(function() {
         const $email = $('#regEmail');
         const $pass = $('#regPass');
         const $confirmPass = $('#regConfirmPass');
-        
         let isValid = true;
 
         if ($name.val().trim() === "") {
             showError($name, "Vui lòng nhập họ và tên!");
             isValid = false;
         }
-
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test($email.val().trim())) {
-            showError($email, "Vui lòng nhập đúng định dạng email (Ví dụ: abc@gmail.com)!");
+            showError($email, "Vui lòng nhập đúng định dạng email!");
             isValid = false;
         }
-
         if ($pass.val().length < 6) {
             showError($pass, "Mật khẩu phải từ 6 ký tự trở lên!");
             isValid = false;
         }
-
         if ($pass.val() !== $confirmPass.val()) {
             showError($confirmPass, "Mật khẩu xác nhận lại không trùng khớp!");
             isValid = false;
@@ -90,25 +92,24 @@ $(document).ready(function() {
             return;
         }
 
-        // Lưu tài khoản mới
+        // Lưu tài khoản mới thành công
         users.push({ name: $name.val().trim(), email: $email.val().trim(), pass: $pass.val() });
         saveUsersToStorage(users);
 
-        // Đóng modal đăng ký và tự động chuyển sang mở modal đăng nhập sau 300ms
+        // Đóng modal đăng ký và tự bật mở modal đăng nhập
         $('#registerModal').modal('hide');
         setTimeout(function() {
-            $('#userEmail').val($email.val().trim()); // Điền sẵn email vừa đăng ký xong
+            $('#userEmail').val($email.val().trim());
+            $('#loginSuccess').removeClass('d-none').text('Đăng ký thành công! Hãy đăng nhập ngay.');
             $('#loginModal').modal('show');
         }, 350);
     });
 
     // ===================================================
-    // XỬ LÝ FORM ĐĂNG NHẬP (SỬA LỖI HIỂN THỊ DƯ THỪA -> CHUYỂN TRANG)
+    // XỬ LÝ FORM ĐĂNG NHẬP (VALIDATION GIAO DIỆN)
     // ===================================================
     $('#loginForm').on('submit', function(e) {
         e.preventDefault();
-        
-        // Reset sạch sẽ trạng thái để không bị chồng chéo lỗi cũ
         $('#loginForm input').removeClass('is-invalid');
         $('#loginForm .invalid-feedback').hide();
         $('#loginError').addClass('d-none');
@@ -117,7 +118,6 @@ $(document).ready(function() {
         const $pass = $('#userPass');
         let isValid = true;
 
-        // Bước 1: Kiểm tra định dạng cơ bản trước
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test($email.val().trim())) {
             showError($email, "Vui lòng nhập đúng định dạng email!");
@@ -128,37 +128,36 @@ $(document).ready(function() {
             isValid = false;
         }
 
-        // Nếu sai định dạng từ đầu thì dừng lại ngay để hiện lỗi định dạng, không kiểm tra tài khoản
         if (!isValid) return;
 
-        // Bước 2: Khi định dạng đã đúng, tiến hành xác thực tài khoản
         let users = getUsersFromStorage();
         const validUser = users.find(user => user.email === $email.val().trim() && user.pass === $pass.val());
 
         if (!validUser) {
-            // Không hiển thị lỗi "Sai định dạng email", chỉ hiển thị thông báo lỗi tài khoản chung
             $('#loginError').removeClass('d-none').text('Email hoặc mật khẩu không chính xác!');
             $email.addClass('is-invalid');
             $pass.addClass('is-invalid');
             return;
         }
 
-        // Ghi nhớ trạng thái và điều hướng tức thì
         localStorage.setItem('moonsilk_email', $email.val().trim());
         $('#loginModal').modal('hide');
         
-        // Chuyển hướng thẳng sang trang Dashboard
+        // Chuyển hướng trực tiếp đến trang Dashboard học tập
         window.location.href = "dashboard.html";
     });
 
     // ===================================================
-    // XỬ LÝ FORM QUÊN MẬT KHẨU (Giữ nguyên logic của bạn)
+    // XỬ LÝ FORM QUÊN MẬT KHẨU (GIAO DIỆN 2 BƯỚC KHÔNG ALERT)
     // ===================================================
+    
+    // Bước 1: Gửi mã OTP xác nhận về Email qua hòm thư EmailJS
     $('#forgotPasswordForm').on('submit', function(e) {
         e.preventDefault();
+        if ($('#forgotStep1').hasClass('d-none')) return; // Ngăn chặn sự kiện submit nhầm khi đang ở bước 2
+
         const $email = $('#forgotEmail');
         $email.removeClass('is-invalid');
-        $email.siblings('.invalid-feedback').hide();
 
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test($email.val().trim())) {
@@ -174,6 +173,7 @@ $(document).ready(function() {
             return;
         }
 
+        // Tạo 6 số ngẫu nhiên
         const randomOTP = Math.floor(100000 + Math.random() * 900000);
         sessionStorage.setItem('reset_otp', randomOTP);
         sessionStorage.setItem('reset_email', $email.val().trim());
@@ -190,33 +190,66 @@ $(document).ready(function() {
         emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
             .then(function() {
                 $btnSubmit.prop('disabled', false).text('Gửi mã khôi phục');
-                $('#forgotPasswordModal').modal('hide');
+                
+                // Ẩn bước 1 và trượt hiển thị bước 2 nhập liệu ngay tại chỗ
+                $('#forgotStep1').addClass('d-none');
+                $('#forgotStep2').removeClass('d-none');
+                
+                $('#forgotModalTitle').text('Xác thực OTP');
+                $('#forgotModalDesc').html('Mã khôi phục đã gửi đến <b class="text-dark">' + $email.val().trim() + '</b>.<br>Vui lòng kiểm tra hộp thư.');
 
-                const userOTP = prompt("Nhập mã OTP (6 số) đã được gửi tới email của bạn:");
-                if (userOTP === sessionStorage.getItem('reset_otp')) {
-                    const newPass = prompt("Mã xác thực chính xác! Nhập mật khẩu mới của bạn (tối thiểu 6 ký tự):");
-                    if (newPass && newPass.length >= 6) {
-                        users = users.map(user => {
-                            if (user.email === sessionStorage.getItem('reset_email')) { user.pass = newPass; }
-                            return user;
-                        });
-                        saveUsersToStorage(users);
-                        alert("Thay đổi mật khẩu thành công! Bạn có thể dùng mật khẩu mới để đăng nhập.");
-                    } else {
-                        alert("Mật khẩu mới không hợp lệ hoặc bạn đã hủy thao tác.");
-                    }
-                } else {
-                    alert("Mã OTP nhập vào không chính xác!");
-                }
-                sessionStorage.removeItem('reset_otp');
-                sessionStorage.removeItem('reset_email');
             }, function(error) {
-                alert('Lỗi gửi EmailJS: ' + JSON.stringify(error));
+                alert('Lỗi kết nối EmailJS: ' + JSON.stringify(error));
                 $btnSubmit.prop('disabled', false).text('Gửi mã khôi phục');
             });
     });
 
-    // Smooth Scroll
+    // Bước 2: Nhấp xác nhận đổi mật khẩu mới trực tiếp trên Modal UI
+    $('#btnConfirmReset').on('click', function() {
+        const $otpInput = $('#forgotOTP');
+        const $newPass = $('#forgotNewPass');
+        const $confirmNewPass = $('#forgotConfirmNewPass');
+
+        $('#forgotStep2 input').removeClass('is-invalid');
+        let isValid = true;
+
+        if ($otpInput.val().trim() !== sessionStorage.getItem('reset_otp')) {
+            showError($otpInput, "Mã OTP nhập vào không chính xác!");
+            isValid = false;
+        }
+        if ($newPass.val().length < 6) {
+            showError($newPass, "Mật khẩu mới phải từ 6 ký tự trở lên!");
+            isValid = false;
+        }
+        if ($newPass.val() !== $confirmNewPass.val()) {
+            showError($confirmNewPass, "Mật khẩu xác nhận lại không trùng khớp!");
+            isValid = false;
+        }
+
+        if (!isValid) return;
+
+        // Cập nhật cơ sở dữ liệu LocalStorage
+        let users = getUsersFromStorage();
+        users = users.map(user => {
+            if (user.email === sessionStorage.getItem('reset_email')) { user.pass = $newPass.val(); }
+            return user;
+        });
+        saveUsersToStorage(users);
+
+        // ĐÓNG MODAL QUÊN MẬT KHẨU -> MỞ LẠI MODAL ĐĂNG NHẬP KÈM BANNER XANH THÀNH CÔNG
+        $('#forgotPasswordModal').modal('hide');
+        setTimeout(function() {
+            $('#userEmail').val(sessionStorage.getItem('reset_email'));
+            $('#loginSuccess').removeClass('d-none').text('Đổi mật khẩu thành công! Hãy đăng nhập bằng mật khẩu mới.');
+            $('#loginModal').modal('show');
+            
+            // Dọn dẹp bộ nhớ đệm
+            sessionStorage.removeItem('reset_otp');
+            sessionStorage.removeItem('reset_email');
+        }, 350);
+    });
+
+    // Hiệu ứng cuộn trang mượt mà Smooth Scroll giữ nguyên
     $('a.nav-link').on('click', function(event) {
         if (this.hash !== "") {
             event.preventDefault();
