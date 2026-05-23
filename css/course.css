@@ -1,0 +1,711 @@
+/* ===== DESIGN TOKENS (ĐỒNG BỘ VỚI DASHBOARD) ===== */
+:root {
+    --sidebar-w: 210px;
+    --header-h: 64px;
+    --radius-card: 14px;
+    
+    --text-dark: #2d2d2d;
+    --text-muted: rgba(0, 0, 0, 0.45);
+    --text-soft: rgba(0, 0, 0, 0.7);
+    
+    --purple-brand: #7c3aed;
+    --pink-brand: #ff98cc;
+    --card-bg-white: rgba(255, 255, 255, 0.92);
+    
+    --color-pink-btn: #bf379b;
+    --color-pink-progress: #ff8099;
+    --color-pink-active: #ff5476;
+    --color-notes-bg: rgba(255, 152, 204, 0.3);
+    --color-notes-border: #ff8099;
+    --color-gray-progress: #d9d9d9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background-image: url('/img/background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: var(--text-dark);
+}
+
+/* Layout */
+.dashboard-container {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+}
+
+/* ===== OVERLAY MOBILE ===== */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
+    z-index: 99;
+}
+
+.sidebar-overlay.is-active {
+    display: block;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width: var(--sidebar-w);
+    background: linear-gradient(to bottom, #c59fff, rgba(249, 168, 212, 0.75));
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0;
+    z-index: 100;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar__logo-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+}
+
+.sidebar__logo-img {
+    width: 130px;
+    height: auto;
+    object-fit: contain;
+}
+
+.sidebar__nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 10px;
+    gap: 3px;
+}
+
+.sidebar__nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: var(--text-dark);
+    border-radius: var(--radius-card);
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.sidebar__nav-item:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.sidebar__nav-item--active {
+    background: rgba(255, 255, 255, 0.45);
+    font-weight: 600;
+}
+
+.sidebar__nav-icon {
+    font-size: 1.1rem;
+    color: #333;
+    width: 28px;
+    text-align: center;
+}
+
+.sidebar__nav-label {
+    font-size: 14px;
+}
+
+/* ===== MAIN WRAPPER ===== */
+.main-wrapper {
+    margin-left: var(--sidebar-w);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ===== HEADER BAR ===== */
+.header-bar {
+    height: var(--header-h);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Hamburger button */
+.header-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20px;
+    height: 14px;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.header-hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--text-dark);
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.header-hamburger.is-active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.header-hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+}
+
+.header-hamburger.is-active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-44deg);
+}
+
+.header-bar__search {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    height: 36px;
+    width: 280px;
+}
+
+.header-bar__search-input {
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    outline: none;
+    width: 100%;
+}
+
+.header-bar__user-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.notification-bell-box {
+    cursor: pointer;
+    position: relative;
+}
+
+.badge-dot {
+    width: 7px;
+    height: 7px;
+    background-color: #ff4d6d;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    border: 1.5px solid white;
+}
+
+.header-bar__divider {
+    color: rgba(0, 0, 0, 0.15);
+}
+
+.user-profile-trigger {
+    background: white;
+    padding: 4px 12px 4px 5px;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.avatar-vector-box {
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #c59fff, #f9a8d4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+}
+
+.header-bar__username {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Dropdown menu */
+.custom-user-menu {
+    border-radius: 12px !important;
+    padding: 5px !important;
+    box-shadow: 0 8px 24px rgba(130, 110, 170, 0.1) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.custom-user-menu .dropdown-item {
+    border-radius: 8px;
+}
+
+.custom-user-menu .dropdown-item:hover {
+    background-color: #f5edff;
+}
+
+/* ===== CONTENT BODY ===== */
+.content-body {
+    padding: 14px 16px;
+}
+
+/* ===== UI CARD ===== */
+.ui-card {
+    background: var(--card-bg-white);
+    border-radius: var(--radius-card);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 16px rgba(140, 125, 160, 0.04);
+    padding: 20px;
+}
+
+/* ===== LESSON BANNER ===== */
+.lesson-banner {
+    background: linear-gradient(135deg, rgba(227, 212, 255, 0.9), rgba(252, 214, 233, 0.9));
+    border-radius: var(--radius-card);
+    padding: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 250px;
+    backdrop-filter: blur(4px);
+}
+
+.lesson-badge {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 220, 250, 0.41);
+    padding: 4px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.lesson-banner__heading {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 12px 0 8px;
+    color: var(--text-dark);
+}
+
+.lesson-banner__desc {
+    font-size: 14px;
+    color: var(--text-soft);
+    margin-bottom: 20px;
+}
+
+.btn-pink {
+    background: var(--color-pink-btn);
+    border-radius: 40px;
+    padding: 8px 20px;
+    color: white;
+    font-weight: 600;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    font-size: 13px;
+}
+
+.btn-pink:hover:not(:disabled) {
+    background: #a02e80;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.btn-pink:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.lesson-banner__img-placeholder {
+    width: 280px;
+    height: 170px;
+    background: linear-gradient(135deg, #e0aaff, #ffc8dd);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.learn_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== VIDEO BAR ===== */
+.video-bar {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50px;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    backdrop-filter: blur(4px);
+}
+
+.video-bar__track {
+    flex: 1;
+    height: 6px;
+    background: var(--color-gray-progress);
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+.video-bar__fill {
+    width: 37%;
+    height: 100%;
+    background: var(--color-pink-progress);
+    border-radius: 30px;
+    transition: width 0.3s ease;
+}
+
+.text-pink {
+    color: var(--color-pink-btn);
+    cursor: pointer;
+}
+
+.text-pink:hover {
+    color: #a02e80;
+}
+
+/* ===== TABS ===== */
+.lesson-tabs__list {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.lesson-tabs__item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: all 0.2s;
+    color: var(--text-soft);
+}
+
+.lesson-tabs__item:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.lesson-tabs__item--active {
+    color: var(--color-pink-active);
+    background: rgba(255, 84, 118, 0.1);
+}
+
+/* Tab Content */
+.tab-content {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== LEARN SECTION ===== */
+.learn-section__cards {
+    background: rgba(255, 220, 250, 0.4);
+    border-radius: var(--radius-card);
+    display: flex;
+    justify-content: space-around;
+    padding: 24px 16px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.learn-item {
+    text-align: center;
+    padding: 8px;
+    flex: 1;
+    min-width: 100px;
+}
+
+.learn-icon {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.learn-divider {
+    width: 1px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* ===== CONTENT LIST ===== */
+.content-list__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.content-list__item:hover {
+    background: rgba(0, 0, 0, 0.02);
+    padding-left: 8px;
+    border-radius: 8px;
+}
+
+.content-list__name {
+    flex: 1;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.play-lesson {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.play-lesson:hover {
+    transform: scale(1.1);
+}
+
+.status-icon {
+    font-size: 18px;
+}
+
+/* ===== PROGRESS DONUT CHART ===== */
+.progress-card__donut-wrap {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+}
+
+.progress-card__percent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.progress-card__percent-num {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--purple-brand);
+}
+
+#progressBarTrack {
+    background: var(--color-pink-progress);
+}
+
+#progressBarFill {
+    background: var(--color-gray-progress);
+    border-radius: 30px;
+}
+
+/* ===== SIDEBAR LESSON LIST ===== */
+.play_trang {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.status-icon-small {
+    font-size: 16px;
+}
+
+/* ===== NOTES SECTION ===== */
+.notes-card__textarea-wrap {
+    background: var(--color-notes-bg);
+    border: 1px solid var(--color-notes-border);
+    border-radius: var(--radius-card);
+    padding: 12px;
+}
+
+.notes-card__textarea {
+    width: 100%;
+    border: none;
+    background: transparent;
+    resize: none;
+    outline: none;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 14px;
+}
+
+.notes-card__textarea:focus {
+    outline: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 991.98px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.is-open {
+        transform: translateX(0);
+    }
+    
+    .main-wrapper {
+        margin-left: 0 !important;
+    }
+    
+    .header-bar__search {
+        width: 180px;
+    }
+    
+    .header-bar__username {
+        display: none;
+    }
+    
+    .header-hamburger {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-body {
+        padding: 12px;
+    }
+    
+    .header-bar {
+        padding: 0 16px;
+    }
+    
+    .lesson-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    
+    .lesson-banner__img-placeholder {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        aspect-ratio: 16/10;
+    }
+    
+    .lesson-banner__heading {
+        font-size: 22px;
+    }
+    
+    .learn-section__cards {
+        flex-direction: column;
+    }
+    
+    .learn-divider {
+        display: none;
+    }
+    
+    .learn-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-align: left;
+    }
+    
+    .learn-icon {
+        margin-bottom: 0;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .video-bar {
+        flex-wrap: wrap;
+    }
+    
+    .video-bar__track {
+        min-width: 150px;
+    }
+    
+    .lesson-tabs__item {
+        padding: 6px 14px;
+        font-size: 12px;
+    }
+    
+    .progress-card__donut-wrap {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .progress-card__percent-num {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-bar__search {
+        width: 140px;
+    }
+    
+    .user-profile-trigger {
+        padding: 4px 8px;
+    }
+    
+    .lesson-tabs__item {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+    
+    .content-list__name {
+        font-size: 12px;
+    }
+    
+    .play_trang {
+        width: 20px;
+        height: 20px;
+    }
+}
