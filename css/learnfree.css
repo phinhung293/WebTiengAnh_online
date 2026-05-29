@@ -1,0 +1,260 @@
+/* =========================================
+   1. MÀU NỀN VÀ BACKGROUND PATTERN
+   ========================================= */
+.learnfree-body {
+    background-color: #fae8f4;
+}
+.bg-pattern {
+    position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;
+    background-image: radial-gradient(#fbcfe8 1.5px, transparent 1.5px), radial-gradient(#f3e8ff 1.5px, #fae8f4 1.5px);
+    background-size: 40px 40px; background-position: 0 0, 20px 20px; opacity: 0.6;
+}
+
+/* Các class tiện ích dùng chung */
+.fs-7 { font-size: 14px; }
+.text-pink { color: #f43f5e !important; }
+.text-purple { color: #8b5cf6 !important; }
+.bg-pink { background-color: #f43f5e !important; }
+.bg-indigo { background-color: #6366f1 !important; }
+.text-indigo { color: #6366f1 !important; }
+.cursor-pointer { cursor: pointer; }
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+
+/* =========================================
+   2. SIDEBAR BÊN TRÁI 
+   ========================================= */
+.lf-sidebar {
+    width: 260px;
+    background: #e6bdfb; 
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    position: sticky; top: 0;
+    border-right: 1px solid rgba(0,0,0,0.05);
+}
+.lf-logo { padding: 20px; text-align: center; }
+
+.lf-menu { display: flex; flex-direction: column; padding: 0 16px; flex-grow: 1; gap: 6px; }
+.lf-menu-item {
+    display: flex; align-items: center; padding: 12px 16px;
+    color: #333; text-decoration: none; border-radius: 14px; 
+    font-weight: 500; font-size: 15px; transition: 0.2s;
+}
+.lf-menu-item i { font-size: 20px; margin-right: 14px; color: #555; }
+.lf-menu-item:hover { background: rgba(255,255,255,0.3); }
+
+/* Trạng thái đang chọn (Active) */
+.lf-menu-item.active { 
+    background: #f7e8ff; 
+    font-weight: 700; color: #000; 
+}
+.lf-menu-item.active i { color: #f43f5e; }
+
+.lf-sidebar-banner {
+    background: rgba(255,255,255,0.4); margin: 16px; padding: 12px; border-radius: 12px;
+    display: flex; align-items: center; gap: 10px;
+}
+.lf-sidebar-banner img { width: 40px; height: auto; }
+
+/* =========================================
+   3. HEADER
+   ========================================= */
+.lf-navbar {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    height: 70px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.lf-navbar .nav-link { color: #333 !important; font-size: 14px; }
+.lf-navbar .nav-link:hover { color: #818cf8 !important; }
+
+/* =========================================
+   4. UI CARDS CHUNG
+   ========================================= */
+.lf-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    border: 1px solid rgba(255,255,255,0.8);
+}
+
+/* =========================================
+   5. BANNER VÀ DẢI THÔNG TIN HỌC THỬ
+   ========================================= */
+.lf-info-bar-inner {
+    background: #fff7fb;
+
+    border: 1px solid #f6cddd;
+
+    border-radius: 20px;
+
+    padding: 22px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 24px;
+
+    box-shadow: 0 4px 14px rgba(244, 63, 94, 0.05);
+}
+.lf-banner-pink-card {
+    background-color: #fff0f6 !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+
+    border-radius: 22px !important;
+
+    box-shadow:
+        0 10px 30px rgba(244, 63, 94, 0.10),
+        0 2px 10px rgba(0,0,0,0.03);
+
+    overflow: hidden !important;
+
+    padding-bottom: 28px;
+}
+/* mỗi item */
+.lf-info-item-flat {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+}
+
+/* icon */
+.lf-info-img{
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* text */
+.lf-info-item-flat span {
+    font-size: 17px;
+    font-weight: 700;
+    color: #222;
+
+    line-height: 1.1;
+}
+
+.lf-info-item-flat small {
+    font-size: 14px;
+    color: #777;
+}
+
+/* divider */
+.lf-bar-divider {
+    width: 1px;
+    height: 42px;
+
+    background: rgba(0,0,0,0.08);
+
+    margin: 0 12px;
+
+    flex-shrink: 0;
+}
+.lf-info-item-flat div{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+@media (max-width: 768px){
+
+    .lf-info-bar-inner{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .lf-info-item-flat{
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .lf-bar-divider{
+        display: none;
+    }
+}
+
+/* =========================================
+   6. VIDEO PLAYER
+   ========================================= */
+.lf-video-player { border: 1px solid #eee; }
+.lf-play-btn-large {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.85);
+    color: #8b5cf6; border: none; font-size: 32px; display: flex; align-items: center; justify-content: center;
+    transition: 0.2s;
+}
+.lf-play-btn-large:hover { transform: translate(-50%, -50%) scale(1.1); background: white; }
+.lf-video-controls { background: white; border-top: 1px solid #f1f1f1; }
+
+/* =========================================
+   7. BÀI TẬP TRẮC NGHIỆM
+   ========================================= */
+.lf-quiz-btn {
+    background: white; border: 1px solid #e2e8f0; border-radius: 10px;
+    padding: 12px; font-size: 14px; font-weight: 500; color: #333;
+    transition: 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+}
+.lf-quiz-btn:hover { border-color: #818cf8; background: #f8fafc; }
+.lf-quiz-btn.correct { background: #fce7f3; border-color: #f43f5e; color: #be123c; font-weight: 700; }
+.lf-quiz-btn.wrong { background: #fee2e2; border-color: #ef4444; color: #b91c1c; }
+
+/* =========================================
+   8. DANH SÁCH BÀI HỌC VÀ UPSELL
+   ========================================= */
+.lf-lesson-item {
+    display: flex; align-items: center; gap: 12px; padding: 12px;
+    border-radius: 12px; cursor: pointer; transition: 0.2s; border: 1px solid transparent;
+}
+.lf-lesson-item:hover { background: #f8fafc; }
+.lf-lesson-item.active { background: #fce7f3; border-color: #fbcfe8; }
+
+.lf-upsell-card {
+    background-color: #fef4c1; 
+    border-radius: 12px; border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+}
+.lf-upsell-list li { color: #111; font-weight: 500; font-size: 13px; }
+.custom-check-icon {
+    font-size: 1.1rem; color: #fcd34d; background-color: transparent;
+    border-radius: 50%; box-shadow: 0 0 0 1.5px #2563eb; 
+}
+.btn-yellow-solid {
+    background-color: #fcd34d; border: none; transition: 0.2s ease;
+}
+.btn-yellow-solid:hover {
+    background-color: #fbbf24; transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+}
+
+/* =========================================
+   9. HIỆU ỨNG LẬT THẺ FLASHCARD 3D
+   ========================================= */
+.flashcard-container {
+    perspective: 1000px; 
+    cursor: pointer;
+    height: 150px; 
+}
+.flashcard-inner {
+    position: relative; width: 100%; height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d; 
+}
+.flashcard-container.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+.flashcard-front, .flashcard-back {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    top: 0; left: 0; margin: 0;
+}
+.flashcard-back {
+    transform: rotateY(180deg);
+    background-color: #fff5f8; 
+    border: 2px dashed #fbcfe8;
+}

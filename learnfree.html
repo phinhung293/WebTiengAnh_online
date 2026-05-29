@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moonsilk - Học thử miễn phí</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/learnfree.css" />
+</head>
+<body class="learnfree-body">
+
+    <div class="bg-pattern"></div>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="d-flex position-relative z-1">
+        
+        <aside class="lf-sidebar" id="sidebar">
+            <div class="lf-logo">
+                <a href="index.html"><img src="img/logo.png" alt="Moonsilk Logo" width="160"></a>
+            </div>
+
+            <div class="lf-menu">
+                <a href="#" class="lf-menu-item active" data-target="#tab-baihocthu">
+                    <i class="bi bi-play-circle-fill text-pink"></i> Bài học thử
+                </a>
+                <a href="#" class="lf-menu-item" data-target="#tab-tuvung">
+                    <i class="bi bi-book"></i> Từ vựng cơ bản
+                </a>
+                <a href="#" class="lf-menu-item" data-target="#tab-nguphap">
+                    <i class="bi bi-pencil"></i> Ngữ pháp cơ bản
+                </a>
+                <a href="#" class="lf-menu-item" data-target="#tab-maucau">
+                    <i class="bi bi-chat-dots"></i> Mẫu câu giao tiếp
+                </a>
+                <a href="#" class="lf-menu-item" data-target="#tab-baitap">
+                    <i class="bi bi-journal-check"></i> Bài tập luyện tập
+                </a>
+            </div>
+
+            <div class="lf-sidebar-banner">
+                <img src="img/gift.png" alt="Gift">
+                <div>
+                    <h6 class="text-danger fw-bold mb-0" style="font-size: 13px;">Học thử miễn phí</h6>
+                    <p class="text-muted mb-0" style="font-size: 10px;">Trải nghiệm 3 bài học cơ bản không cần đăng ký</p>
+                </div>
+            </div>
+        </aside>
+
+        <div class="lf-main-content flex-grow-1">
+            
+            <nav class="navbar navbar-expand-lg lf-navbar px-4"> 
+                <div class="d-flex align-items-center gap-2 d-lg-none">
+                    <button class="header-hamburger" id="hamburgerBtn">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto fw-medium gap-3"> 
+                        <li class="nav-item"><a class="nav-link" href="index.html#features">Tính năng</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#courses">Khóa học</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Giá cả</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Về chúng tôi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Câu hỏi thường gặp</a></li>
+                    </ul>
+                    <div class="navbar-actions d-flex gap-2">
+                        <button class="btn btn-indigo px-4 py-2 btn-pill" data-bs-toggle="modal" data-bs-target="#loginModal">Đăng nhập</button>
+                        <button class="btn btn-yellow px-4 py-2 btn-pill" data-bs-toggle="modal" data-bs-target="#registerModal">Đăng ký miễn phí</button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-fluid px-4 py-3">
+                
+                <div id="tab-baihocthu" class="lf-tab-pane d-block">
+                    <div class="row g-4">
+                        <div class="col-xl-8 col-lg-7">
+                            
+                            <div class="lf-card lf-banner-pink-card p-4 position-relative mb-4">
+                                <div class="row position-relative z-1 align-items-center">
+                                    <div class="col-md-7">
+                                        <h3 class="fw-bold mb-2">Học thử miễn phí ✨</h3>
+                                        <p class="text-secondary small mb-0">Khám phá 3 bài học cơ bản để trải nghiệm phương pháp học tiếng Anh hiệu quả cùng Moonsilk.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="lf-info-bar-inner mt-4">
+                                    <div class="lf-info-item-flat d-flex align-items-center gap-2">
+                                        <img src="img/book.png" alt="Book" class="lf-info-img">
+                                        <div>
+                                            <span class="d-block fw-bold text-dark lh-1 mb-1">3 bài học</span>
+                                            <small class="text-muted">cơ bản</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="lf-bar-divider"></div>
+                                    
+                                    <div class="lf-info-item-flat d-flex align-items-center gap-2">
+                                        <img src="img/clock.png" alt="Clock" class="lf-info-img">
+                                        <div>
+                                            <span class="d-block fw-bold text-dark lh-1 mb-1">Khoảng 20 phút</span>
+                                            <small class="text-muted">học mỗi bài</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="lf-bar-divider"></div>
+                                    
+                                    <div class="lf-info-item-flat d-flex align-items-center gap-2">
+                                        <img src="img/giftbox.png" alt="Gift" class="lf-info-img">
+                                        <div>
+                                            <span class="d-block fw-bold text-dark lh-1 mb-1">Hoàn toàn</span>
+                                            <small class="text-muted">miễn phí</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <h4 class="fw-bold mb-1" id="videoTitle">Bài 1: Chào hỏi cơ bản</h4>
+                                <p class="text-secondary small mb-3">Học cách phát âm và các mẫu câu thông dụng nhất.</p>
+                                <div class="lf-card lf-video-player overflow-hidden" id="videoContainer">
+                                    <div class="position-relative">
+                                        <img src="https://placehold.co/800x320/e0e7ff/4f46e5?text=Moonsilk+Video+Lesson" alt="Video" class="w-100 object-fit-cover" style="height: 320px;">
+                                        <button class="lf-play-btn-large" id="playVideoBtnLarge"><i class="bi bi-play-fill"></i></button>
+                                    </div>
+                                    <div class="lf-video-controls d-flex align-items-center gap-3 p-3">
+                                        <i class="bi bi-play-circle fs-5" id="playVideoBtnSmall" style="cursor: pointer;"></i>
+                                        <i class="bi bi-volume-up fs-5" id="volumeBtn" style="cursor: pointer;"></i>
+                                        <div class="progress flex-grow-1" id="videoTrack" style="height: 6px; cursor: pointer;"><div class="progress-bar bg-pink" id="videoProgressFill" style="width: 0%; transition: width 0.3s linear;"></div></div>
+                                        <span class="small text-muted fw-medium" id="videoTime" style="min-width: 85px;">00:00 / 05:30</span>
+                                        <i class="bi bi-gear fs-5" style="cursor: pointer;"></i>
+                                        <i class="bi bi-fullscreen fs-5" style="cursor: pointer;"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-5 mt-4">
+                                <h5 class="fw-bold mb-0 text-uppercase">BÀI TẬP NHANH</h5>
+                                <p class="text-secondary small mb-3">Chọn câu trả lời đúng nhất</p>
+                                <div class="lf-card p-4">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <h6 class="fw-bold mb-0">1. Cách chào hỏi phổ biến nhất trong tiếng Anh là gì?</h6>
+                                        <i class="bi bi-check-circle-fill text-success fs-5 d-none quiz-icon"></i>
+                                    </div>
+                                    <div class="row g-3">
+                                        <div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">A. Goodbye</button></div>
+                                        <div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="true">B. Hello</button></div>
+                                        <div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">C. Thank you</button></div>
+                                        <div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">D. See you</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="lf-card p-4 mb-4">
+                                <h6 class="fw-bold mb-3">Danh sách bài học thử</h6>
+                                <div class="lf-lesson-item active mb-2" onclick="changeLesson(this, '05:30')">
+                                    <i class="bi bi-play-circle-fill text-pink fs-3"></i>
+                                    <div><p class="mb-0 fw-bold fs-7 text-pink">1. Chào hỏi cơ bản</p><span class="text-muted" style="font-size: 11px;">~ 5 phút 30s</span></div>
+                                </div>
+                                <div class="lf-lesson-item mb-2" onclick="changeLesson(this, '07:15')">
+                                    <i class="bi bi-play-circle-fill text-secondary fs-3"></i>
+                                    <div><p class="mb-0 fw-medium fs-7 text-dark">2. Từ vựng thông dụng</p><span class="text-muted" style="font-size: 11px;">~ 7 phút 15s</span></div>
+                                </div>
+                                <div class="lf-lesson-item mb-2" onclick="changeLesson(this, '08:00')">
+                                    <i class="bi bi-play-circle-fill text-secondary fs-3"></i>
+                                    <div><p class="mb-0 fw-medium fs-7 text-dark">3. Mẫu câu đơn giản</p><span class="text-muted" style="font-size: 11px;">~ 8 phút 00s</span></div>
+                                </div>
+                            </div>
+
+                            <div class="lf-card p-4 mb-4">
+                                <h6 class="fw-bold mb-1">Tiến độ học thử</h6>
+                                <p class="text-muted mb-2" id="progressText" style="font-size: 12px;">1/3 bài hoàn thành</p>
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="progress flex-grow-1" style="height: 8px;"><div class="progress-bar bg-pink rounded-pill" id="progressPercentFill" style="width: 33%;"></div></div>
+                                    <span class="small text-muted fw-bold" id="progressPercentText">33%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="lf-upsell-card p-4">
+                                <h5 class="fw-bold mb-2 text-dark">Thích trải nghiệm này?</h5>
+                                <p class="text-dark small mb-4">Đăng ký để mở khóa toàn bộ khóa học và nhiều tính năng hấp dẫn khác</p>
+                                
+                                <ul class="list-unstyled small mb-4 lf-upsell-list">
+                                    <li class="d-flex align-items-center mb-3"><i class="bi bi-check-circle-fill custom-check-icon me-2"></i> Truy cập tất cả bài học</li>
+                                    <li class="d-flex align-items-center mb-3"><i class="bi bi-check-circle-fill custom-check-icon me-2"></i> Lộ trình cá nhân hóa</li>
+                                    <li class="d-flex align-items-center mb-3"><i class="bi bi-check-circle-fill custom-check-icon me-2"></i> Bài tập và kiểm tra nâng cao</li>
+                                    <li class="d-flex align-items-center mb-3"><i class="bi bi-check-circle-fill custom-check-icon me-2"></i> Theo dõi tiến độ chi tiết</li>
+                                </ul>
+
+                                <button class="btn btn-yellow-solid w-100 rounded-pill py-2 fw-bold text-dark" data-bs-toggle="modal" data-bs-target="#registerModal">Đăng ký miễn phí ngay</button>
+                                <p class="text-center text-muted mt-3 mb-0" style="font-size: 10px;">Không cần thẻ tín dụng</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-tuvung" class="lf-tab-pane d-none">
+                    <h3 class="fw-bold mb-2">Từ vựng cơ bản: Chào hỏi</h3>
+                    <p class="text-muted mb-4">Lật thẻ để xem nghĩa.</p>
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-3 col-6"><div class="flashcard-container"><div class="flashcard-inner"><div class="lf-card flashcard-front p-4 text-center"><h4 class="text-purple fw-bold mb-2">Hello</h4><p class="text-muted small mb-3">/hɛˈləʊ/</p></div><div class="lf-card flashcard-back p-4 text-center d-flex align-items-center justify-content-center"><h4 class="text-pink fw-bold mb-0">Xin chào</h4></div></div></div></div>
+                        <div class="col-md-3 col-6"><div class="flashcard-container"><div class="flashcard-inner"><div class="lf-card flashcard-front p-4 text-center"><h4 class="text-purple fw-bold mb-2">Goodbye</h4><p class="text-muted small mb-3">/ɡʊdˈbaɪ/</p></div><div class="lf-card flashcard-back p-4 text-center d-flex align-items-center justify-content-center"><h4 class="text-pink fw-bold mb-0">Tạm biệt</h4></div></div></div></div>
+                        <div class="col-md-3 col-6"><div class="flashcard-container"><div class="flashcard-inner"><div class="lf-card flashcard-front p-4 text-center"><h4 class="text-purple fw-bold mb-2">Morning</h4><p class="text-muted small mb-3">/ˈmɔːnɪŋ/</p></div><div class="lf-card flashcard-back p-4 text-center d-flex align-items-center justify-content-center"><h4 class="text-pink fw-bold mb-0">Buổi sáng</h4></div></div></div></div>
+                        <div class="col-md-3 col-6"><div class="flashcard-container"><div class="flashcard-inner"><div class="lf-card flashcard-front p-4 text-center"><h4 class="text-purple fw-bold mb-2">Night</h4><p class="text-muted small mb-3">/naɪt/</p></div><div class="lf-card flashcard-back p-4 text-center d-flex align-items-center justify-content-center"><h4 class="text-pink fw-bold mb-0">Buổi tối</h4></div></div></div></div>
+                    </div>
+
+                    <h4 class="fw-bold mb-3">Thực hành từ vựng</h4>
+                    <div class="lf-card p-4 mb-4">
+                        <div class="d-flex justify-content-between mb-3"><h6 class="fw-bold mb-0">Câu 1: Từ nào dưới đây có nghĩa là "Tạm biệt"?</h6><i class="bi bi-check-circle-fill text-success fs-5 d-none quiz-icon"></i></div>
+                        <div class="row g-3"><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">A. Hello</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">B. Morning</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="true">C. Goodbye</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">D. Night</button></div></div>
+                    </div>
+                </div>
+
+                <div id="tab-nguphap" class="lf-tab-pane d-none">
+                    <h3 class="fw-bold mb-2">Ngữ pháp: Động từ To Be</h3>
+                    <p class="text-muted mb-4">Cách giới thiệu bản thân đơn giản nhất.</p>
+                    <div class="lf-card p-4 mb-5">
+                        <div class="table-responsive">
+                            <table class="table table-borderless table-hover">
+                                <thead class="table-light"><tr><th>Đại từ (Chủ ngữ)</th><th>Động từ To Be</th><th>Ví dụ</th></tr></thead>
+                                <tbody>
+                                    <tr><td><strong>I</strong> (Tôi)</td><td class="text-pink fw-bold">am</td><td><strong>I am</strong> Nhung.</td></tr>
+                                    <tr><td><strong>He / She / It</strong></td><td class="text-pink fw-bold">is</td><td><strong>She is</strong> a student.</td></tr>
+                                    <tr><td><strong>You / We / They</strong></td><td class="text-pink fw-bold">are</td><td><strong>You are</strong> welcome.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <h4 class="fw-bold mb-3">Thực hành ngữ pháp</h4>
+                    <div class="lf-card p-4 mb-4">
+                        <div class="d-flex justify-content-between mb-3"><h6 class="fw-bold mb-0">Câu 1: Điền động từ To Be thích hợp: "He _____ a doctor."</h6><i class="bi bi-check-circle-fill text-success fs-5 d-none quiz-icon"></i></div>
+                        <div class="row g-3"><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">A. am</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="true">B. is</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">C. are</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">D. be</button></div></div>
+                    </div>
+                    <div class="lf-card p-4 mb-4">
+                        <div class="d-flex justify-content-between mb-3"><h6 class="fw-bold mb-0">Câu 2: Điền động từ To Be thích hợp: "We _____ friends."</h6><i class="bi bi-check-circle-fill text-success fs-5 d-none quiz-icon"></i></div>
+                        <div class="row g-3"><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">A. am</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">B. is</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="true">C. are</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">D. was</button></div></div>
+                    </div>
+                </div>
+
+                <div id="tab-maucau" class="lf-tab-pane d-none">
+                    <h3 class="fw-bold mb-2">Đoạn hội thoại mẫu</h3>
+                    <p class="text-muted mb-4">Đọc và thực hành theo đoạn hội thoại dưới đây.</p>
+                    <div class="lf-card p-4 col-lg-8 mb-5" style="background-color: #f8fafc;">
+                        <div class="d-flex gap-3 mb-4"><div class="bg-white p-2 rounded-circle shadow-sm" style="width: 40px; height: 40px;"><img src="img/iconcaube.png" class="w-100"></div><div class="bg-white p-3 rounded-4 shadow-sm" style="border-top-left-radius: 0 !important;"><p class="mb-1 fw-bold text-purple">Alex</p><p class="mb-0">Hello! Good morning. My name is Alex.</p></div></div>
+                        <div class="d-flex gap-3 mb-4 flex-row-reverse"><div class="bg-pink text-white d-flex align-items-center justify-content-center rounded-circle shadow-sm" style="width: 40px; height: 40px;">B</div><div class="bg-indigo text-white p-3 rounded-4 shadow-sm" style="border-top-right-radius: 0 !important;"><p class="mb-1 fw-bold" style="color: #e0e7ff;">Bella</p><p class="mb-0">Hi Alex! I am Bella. Nice to meet you.</p></div></div>
+                    </div>
+
+                    <h4 class="fw-bold mb-3">Thực hành phản xạ</h4>
+                    <div class="lf-card p-4 mb-4">
+                        <div class="d-flex justify-content-between mb-3"><h6 class="fw-bold mb-0">Tình huống: Khi có người nói "Nice to meet you", bạn đáp lại thế nào?</h6><i class="bi bi-check-circle-fill text-success fs-5 d-none quiz-icon"></i></div>
+                        <div class="row g-3"><div class="col-md-3 col-12"><button class="lf-quiz-btn w-100" data-correct="false">A. I am fine, thank you.</button></div><div class="col-md-3 col-12"><button class="lf-quiz-btn w-100" data-correct="true">B. Nice to meet you too!</button></div><div class="col-md-3 col-12"><button class="lf-quiz-btn w-100" data-correct="false">C. My name is Bella.</button></div><div class="col-md-3 col-12"><button class="lf-quiz-btn w-100" data-correct="false">D. Goodbye.</button></div></div>
+                    </div>
+                </div>
+
+                <div id="tab-baitap" class="lf-tab-pane d-none">
+                    <h3 class="fw-bold mb-2">Mini Test: Đánh giá năng lực</h3>
+                    <p class="text-muted mb-4">Hoàn thành các câu trắc nghiệm dưới đây để ôn tập toàn bộ kiến thức nhé.</p>
+                    
+                    <div class="lf-card p-4 mb-4"><div class="d-flex justify-content-between mb-3"><h6 class="fw-bold mb-0">Câu 1: Cách nói "Chào buổi sáng" trong tiếng Anh là gì?</h6><i class="bi bi-check-circle-fill text-success fs-5 d-none quiz-icon"></i></div><div class="row g-3"><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">A. Good night</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="true">B. Good morning</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">C. Goodbye</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">D. Hello</button></div></div></div>
+                    <div class="lf-card p-4 mb-4"><div class="d-flex justify-content-between mb-3"><h6 class="fw-bold mb-0">Câu 2: Điền từ còn thiếu: "I _____ a student."</h6><i class="bi bi-check-circle-fill text-success fs-5 d-none quiz-icon"></i></div><div class="row g-3"><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="true">A. am</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">B. is</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">C. are</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">D. be</button></div></div></div>
+                    <div class="lf-card p-4 mb-4"><div class="d-flex justify-content-between mb-3"><h6 class="fw-bold mb-0">Câu 3: Sắp xếp các từ sau thành câu hoàn chỉnh: "name / My / Anna / is"</h6><i class="bi bi-check-circle-fill text-success fs-5 d-none quiz-icon"></i></div><div class="row g-3"><div class="col-md-6 col-12"><button class="lf-quiz-btn w-100" data-correct="false">A. Name my Anna is.</button></div><div class="col-md-6 col-12"><button class="lf-quiz-btn w-100" data-correct="false">B. Anna is my name.</button></div><div class="col-md-6 col-12"><button class="lf-quiz-btn w-100" data-correct="true">C. My name is Anna.</button></div><div class="col-md-6 col-12"><button class="lf-quiz-btn w-100" data-correct="false">D. My is Anna name.</button></div></div></div>
+                    <div class="lf-card p-4 mb-4"><div class="d-flex justify-content-between mb-3"><h6 class="fw-bold mb-0">Câu 4: Dịch câu sau sang tiếng Anh: "Cô ấy là giáo viên."</h6><i class="bi bi-check-circle-fill text-success fs-5 d-none quiz-icon"></i></div><div class="row g-3"><div class="col-md-6 col-12"><button class="lf-quiz-btn w-100" data-correct="true">A. She is a teacher.</button></div><div class="col-md-6 col-12"><button class="lf-quiz-btn w-100" data-correct="false">B. He is a teacher.</button></div><div class="col-md-6 col-12"><button class="lf-quiz-btn w-100" data-correct="false">C. She am a teacher.</button></div><div class="col-md-6 col-12"><button class="lf-quiz-btn w-100" data-correct="false">D. I am a teacher.</button></div></div></div>
+                    <div class="lf-card p-4 mb-4"><div class="d-flex justify-content-between mb-3"><h6 class="fw-bold mb-0">Câu 5: Đáp lại câu hỏi "How are you?" thế nào cho tự nhiên nhất?</h6><i class="bi bi-check-circle-fill text-success fs-5 d-none quiz-icon"></i></div><div class="row g-3"><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">A. Yes, I do.</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">B. I am 20 years old.</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="true">C. I'm fine, thanks.</button></div><div class="col-md-3 col-6"><button class="lf-quiz-btn w-100" data-correct="false">D. Nice to meet you.</button></div></div></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4">
+                <div class="modal-body p-5">
+                    <h3 class="fw-bold mb-4">Đăng nhập</h3>
+                    <form id="loginForm" novalidate>
+                        <div id="loginSuccess" class="alert alert-success d-none rounded-pill py-2 px-3 small text-center mb-3"></div>
+                        <div id="loginError" class="alert alert-danger d-none rounded-pill py-2 px-3 small text-center mb-3"></div>
+                        
+                        <div class="mb-3">
+                            <input type="email" id="userEmail" class="form-control rounded-pill p-2 px-3" placeholder="Email của bạn" required>
+                            <div class="invalid-feedback ms-3 small">Vui lòng nhập đúng định dạng email!</div>
+                        </div>
+                        <div class="mb-2">
+                            <input type="password" id="userPass" class="form-control rounded-pill p-2 px-3" placeholder="Mật khẩu" required>
+                            <div class="invalid-feedback ms-3 small">Mật khẩu không được để trống!</div>
+                        </div>
+
+                        <div class="text-end mb-3">
+                            <a href="#" class="small text-indigo text-decoration-none" data-bs-target="#forgotPasswordModal" data-bs-toggle="modal">Quên mật khẩu?</a>
+                        </div>
+                        <button type="submit" class="btn btn-indigo w-100 rounded-pill py-2">Xác nhận</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4">
+                <div class="modal-body p-5">
+                    <div class="text-center mb-4">
+                        <h3 class="fw-bold mb-1">Tham gia Moonsilk</h3>
+                        <p class="text-muted">Bắt đầu hành trình chinh phục tiếng Anh ngay hôm nay.</p>
+                    </div>
+                    <form id="registerForm" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium small">Họ và tên</label>
+                            <input type="text" id="regName" class="form-control rounded-pill p-2 px-3" placeholder="Nhập tên của bạn" required>
+                            <div class="invalid-feedback ms-3 small">Vui lòng nhập họ và tên!</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium small">Email</label>
+                            <input type="email" id="regEmail" class="form-control rounded-pill p-2 px-3" placeholder="email@example.com" required>
+                            <div class="invalid-feedback ms-3 small">Vui lòng nhập đúng định dạng email!</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium small">Mật khẩu</label>
+                            <input type="password" id="regPass" class="form-control rounded-pill p-2 px-3" placeholder="Ít nhất 6 ký tự" required>
+                            <div class="invalid-feedback ms-3 small">Mật khẩu phải từ 6 ký tự trở lên!</div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-medium small">Nhập lại mật khẩu</label>
+                            <input type="password" id="regConfirmPass" class="form-control rounded-pill p-2 px-3" placeholder="Xác nhận lại mật khẩu" required>
+                            <div class="invalid-feedback ms-3 small">Mật khẩu xác nhận lại không trùng khớp!</div>
+                        </div>
+                        <button type="submit" class="btn btn-yellow w-100 rounded-pill py-2 mb-3">Đăng ký tài khoản</button>
+                        <p class="text-center small mb-0">Đã có tài khoản? <a href="#" class="text-indigo fw-bold" data-bs-target="#loginModal" data-bs-toggle="modal">Đăng nhập</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4">
+                <div class="modal-body p-5">
+                    <div class="text-center mb-4">
+                        <h3 class="fw-bold mb-1" id="forgotModalTitle">Quên mật khẩu</h3>
+                        <p class="text-muted small" id="forgotModalDesc">Nhập email của bạn để nhận mã OTP khôi phục qua Email.</p>
+                    </div>
+                    <form id="forgotPasswordForm" novalidate>
+                        
+                        <div id="forgotStep1">
+                            <div class="mb-4">
+                                <label class="form-label fw-medium small">Email đã đăng ký</label>
+                                <input type="email" id="forgotEmail" class="form-control rounded-pill p-2 px-3" placeholder="email@example.com" required>
+                                <div class="invalid-feedback ms-3 small"></div>
+                            </div>
+                            <button type="submit" class="btn btn-indigo w-100 rounded-pill py-2 mb-3" id="btnForgotSubmit">Gửi mã khôi phục</button>
+                        </div>
+
+                        <div id="forgotStep2" class="d-none">
+                            <div class="mb-3">
+                                <label class="form-label fw-medium small">Nhập mã OTP (6 số)</label>
+                                <input type="text" id="forgotOTP" class="form-control rounded-pill p-2 px-3 text-center fw-bold fs-5" placeholder="• • • • • •" maxlength="6" required>
+                                <div class="invalid-feedback ms-3 small">Mã OTP nhập vào không chính xác!</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-medium small">Mật khẩu mới</label>
+                                <input type="password" id="forgotNewPass" class="form-control rounded-pill p-2 px-3" placeholder="Ít nhất 6 ký tự" required>
+                                <div class="invalid-feedback ms-3 small">Mật khẩu mới phải từ 6 ký tự trở lên!</div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label fw-medium small">Xác nhận mật khẩu mới</label>
+                                <input type="password" id="forgotConfirmNewPass" class="form-control rounded-pill p-2 px-3" placeholder="Nhập lại mật khẩu mới" required>
+                                <div class="invalid-feedback ms-3 small">Mật khẩu nhập lại không khớp!</div>
+                            </div>
+                            <button type="button" class="btn btn-indigo w-100 rounded-pill py-2 mb-3" id="btnConfirmReset">Xác nhận đổi mật khẩu</button>
+                        </div>
+
+                        <p class="text-center small mb-0"><a href="#" class="text-indigo fw-bold" data-bs-target="#loginModal" data-bs-toggle="modal">Quay lại Đăng nhập</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    
+    <script src="learnfree.js"></script>
+</body>
+</html>
