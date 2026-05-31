@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/dashboard.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
 </head>
 <body>
 
@@ -19,7 +19,7 @@
         
         <aside class="sidebar" id="sidebar">
             <div class="sidebar__logo-wrap">
-                <img class="sidebar__logo-img" src="img/logo.png" alt="Moonsilk Logo" />
+                <a href="../index.html"><img class="sidebar__logo-img" src="../img/logo.png" alt="Moonsilk Logo" /></a>
             </div>
 
             <nav class="sidebar__nav">
@@ -110,7 +110,7 @@
                                 Lesson 1: Grammar Basic <span class="arrow">&gt;</span>
                             </p>
                         </div>
-                        <img class="welcome-card__vector" src="img/iconcaube.png" alt="Moon Boy" />
+                        <img class="welcome-card__vector" src="../img/iconcaube.png" alt="Moon Boy" />
                     </section>
 
                     <section class="ui-card px-3 py-3">
@@ -273,15 +273,19 @@
     
     <script>
         $(document).ready(function() {
-            const users = JSON.parse(localStorage.getItem('moonsilk_users')) || [];
             const currentEmail = localStorage.getItem('moonsilk_email');
             
-            if (currentEmail) {
-                const user = users.find(u => u.email === currentEmail);
-                if (user) {
-                    $('#displayName').text(user.name);
-                    $('.welcome-card__user').text(user.name + ' ✨');
-                }
+            // Bảo vệ Route: Nếu chưa đăng nhập thì đá về trang chủ
+            if (!currentEmail) {
+                window.location.replace('../index.html');
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem('moonsilk_users')) || [];
+            const user = users.find(u => u.email === currentEmail);
+            if (user) {
+                $('#displayName').text(user.name);
+                $('.welcome-card__user').text(user.name + ' ✨');
             }
 
             // Mở Sidebar di động mượt mà
@@ -301,7 +305,7 @@
             $('#btnLogout').on('click', function(e) {
                 e.preventDefault();
                 localStorage.removeItem('moonsilk_email');
-                window.location.href = "index.html";
+                window.location.href = "../index.html";
             });
         });
     </script>

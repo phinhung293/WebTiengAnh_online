@@ -82,44 +82,29 @@
    5. BANNER VÀ DẢI THÔNG TIN HỌC THỬ
    ========================================= */
 .lf-info-bar-inner {
-    background: #fff7fb;
-
-    border: 1px solid #f6cddd;
-
+    background: transparent;
+    border: none;
     border-radius: 20px;
-
-    padding: 22px 30px;
-
+    padding: 10px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    margin-top: 24px;
-
-    box-shadow: 0 4px 14px rgba(244, 63, 94, 0.05);
+    margin-top: 10px;
 }
 .lf-banner-pink-card {
-    background-color: #fff0f6 !important;
-    border: 1px solid rgba(255, 255, 255, 0.8) !important;
-
-    border-radius: 22px !important;
-
-    box-shadow:
-        0 10px 30px rgba(244, 63, 94, 0.10),
-        0 2px 10px rgba(0,0,0,0.03);
-
+    background-color: #ffffff !important;
+    border: none !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     overflow: hidden !important;
-
-    padding-bottom: 28px;
+    padding-bottom: 20px;
 }
 /* mỗi item */
 .lf-info-item-flat {
     flex: 1;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     gap: 14px;
 }
 
@@ -149,11 +134,8 @@
 .lf-bar-divider {
     width: 1px;
     height: 42px;
-
-    background: rgba(0,0,0,0.08);
-
-    margin: 0 12px;
-
+    background: rgba(0,0,0,0.1);
+    margin: 0 10px;
     flex-shrink: 0;
 }
 .lf-info-item-flat div{
@@ -257,4 +239,43 @@
     transform: rotateY(180deg);
     background-color: #fff5f8; 
     border: 2px dashed #fbcfe8;
+}
+
+/* =========================================
+   10. RESPONSIVE DESIGN (MOBILE & TABLET)
+   ========================================= */
+@media (max-width: 991.98px) {
+    .lf-sidebar {
+        position: fixed;
+        left: -260px;
+        z-index: 1050;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    }
+    .lf-sidebar.is-open {
+        left: 0;
+    }
+    .sidebar-overlay {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 1040;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
+    }
+    .sidebar-overlay.is-active {
+        opacity: 1;
+        visibility: visible;
+    }
+    .header-hamburger {
+        display: flex; flex-direction: column; justify-content: space-around;
+        width: 30px; height: 24px; background: transparent; border: none; cursor: pointer; padding: 0;
+    }
+    .header-hamburger span {
+        width: 100%; height: 3px; background-color: #333; border-radius: 3px; transition: 0.3s;
+    }
+    .header-hamburger.is-active span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+    .header-hamburger.is-active span:nth-child(2) { opacity: 0; }
+    .header-hamburger.is-active span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
 }

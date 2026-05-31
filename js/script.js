@@ -20,7 +20,7 @@ $(document).ready(function() {
     }
 
     // Làm sạch lỗi real-time khi người dùng bắt đầu gõ lại dữ liệu
-    $('form input').on('input', function() {
+    $(document).on('input', 'form input', function() {
         $(this).removeClass('is-invalid');
         $(this).siblings('.invalid-feedback').hide();
         $('#loginError').addClass('d-none');
@@ -32,7 +32,7 @@ $(document).ready(function() {
     if (rememberedEmail) { $('#userEmail').val(rememberedEmail); }
 
     // Xóa sạch trạng thái lỗi và dữ liệu thừa khi đóng Modal bất kỳ
-    $('.modal').on('hidden.bs.modal', function () {
+    $(document).on('hidden.bs.modal', '.modal', function () {
         const $form = $(this).find('form');
         if ($form.length > 0) {
             $form[0].reset();
@@ -54,7 +54,7 @@ $(document).ready(function() {
     // ===================================================
     // XỬ LÝ FORM ĐĂNG KÝ (VALIDATION GIAO DIỆN)
     // ===================================================
-    $('#registerForm').on('submit', function(e) {
+    $(document).on('submit', '#registerForm', function(e) {
         e.preventDefault();
         $('#registerForm input').removeClass('is-invalid');
         $('#registerForm .invalid-feedback').hide();
@@ -108,7 +108,7 @@ $(document).ready(function() {
     // ===================================================
     // XỬ LÝ FORM ĐĂNG NHẬP (VALIDATION GIAO DIỆN)
     // ===================================================
-    $('#loginForm').on('submit', function(e) {
+    $(document).on('submit', '#loginForm', function(e) {
         e.preventDefault();
         $('#loginForm input').removeClass('is-invalid');
         $('#loginForm .invalid-feedback').hide();
@@ -143,8 +143,9 @@ $(document).ready(function() {
         localStorage.setItem('moonsilk_email', $email.val().trim());
         $('#loginModal').modal('hide');
         
-        // Chuyển hướng trực tiếp đến trang Dashboard học tập
-        window.location.href = "dashboard.html";
+        // Chuyển hướng trực tiếp đến trang Dashboard học tập (tùy thuộc vào vị trí file html gọi script)
+        const isPagesDir = window.location.pathname.includes('/pages/');
+        window.location.href = isPagesDir ? "dashboard.html" : "pages/dashboard.html";
     });
 
     // ===================================================
@@ -152,7 +153,7 @@ $(document).ready(function() {
     // ===================================================
     
     // Bước 1: Gửi mã OTP xác nhận về Email qua hòm thư EmailJS
-    $('#forgotPasswordForm').on('submit', function(e) {
+    $(document).on('submit', '#forgotPasswordForm', function(e) {
         e.preventDefault();
         if ($('#forgotStep1').hasClass('d-none')) return; // Ngăn chặn sự kiện submit nhầm khi đang ở bước 2
 
@@ -205,7 +206,7 @@ $(document).ready(function() {
     });
 
     // Bước 2: Nhấp xác nhận đổi mật khẩu mới trực tiếp trên Modal UI
-    $('#btnConfirmReset').on('click', function() {
+    $(document).on('click', '#btnConfirmReset', function() {
         const $otpInput = $('#forgotOTP');
         const $newPass = $('#forgotNewPass');
         const $confirmNewPass = $('#forgotConfirmNewPass');
@@ -250,7 +251,7 @@ $(document).ready(function() {
     });
 
     // Hiệu ứng cuộn trang mượt mà Smooth Scroll giữ nguyên
-    $('a.nav-link').on('click', function(event) {
+    $(document).on('click', 'a.nav-link', function(event) {
         if (this.hash !== "") {
             event.preventDefault();
             const hash = this.hash;
