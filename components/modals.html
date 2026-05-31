@@ -1,0 +1,113 @@
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 rounded-4 shadow">
+            <div class="modal-body p-5">
+                <h3 class="fw-bold mb-4">Đăng nhập</h3>
+                <form id="loginForm" novalidate>
+                    <div id="loginSuccess" class="alert alert-success d-none rounded-pill py-2 px-3 small text-center mb-3"></div>
+                    <div id="loginError" class="alert alert-danger d-none rounded-pill py-2 px-3 small text-center mb-3"></div>
+                    
+                    <div class="mb-3">
+                        <input type="email" id="userEmail" class="form-control rounded-pill p-3" placeholder="Email của bạn" required>
+                        <div class="invalid-feedback ms-3 small">Vui lòng nhập đúng định dạng email!</div>
+                    </div>
+                    <div class="mb-2">
+                        <input type="password" id="userPass" class="form-control rounded-pill p-3" placeholder="Mật khẩu" required>
+                        <div class="invalid-feedback ms-3 small">Mật khẩu không được để trống!</div>
+                    </div>
+
+                    <div class="text-end mb-3">
+                        <a href="#" class="small text-indigo text-decoration-none" data-bs-target="#forgotPasswordModal" data-bs-toggle="modal">Quên mật khẩu?</a>
+                    </div>
+                    <button type="submit" class="btn btn-indigo w-100 rounded-pill py-3 fw-bold">Xác nhận</button>
+                    <p class="text-center small mb-0 mt-3">Chưa có tài khoản? <a href="#" class="text-yellow fw-bold text-decoration-none" data-bs-target="#registerModal" data-bs-toggle="modal">Đăng ký ngay</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 rounded-4 shadow">
+            <div class="modal-body p-5">
+                <div class="text-center mb-4">
+                    <h3 class="fw-bold mb-1">Tham gia Moonsilk</h3>
+                    <p class="text-muted small">Bắt đầu hành trình chinh phục tiếng Anh ngay hôm nay.</p>
+                </div>
+                <form id="registerForm" novalidate>
+                    <div class="mb-3">
+                        <label class="form-label fw-medium small ms-2">Họ và tên</label>
+                        <input type="text" id="regName" class="form-control rounded-pill p-3" placeholder="Nhập tên của bạn" required>
+                        <div class="invalid-feedback ms-3 small">Vui lòng nhập họ và tên!</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-medium small ms-2">Email</label>
+                        <input type="email" id="regEmail" class="form-control rounded-pill p-3" placeholder="email@example.com" required>
+                        <div class="invalid-feedback ms-3 small">Vui lòng nhập đúng định dạng email!</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-medium small ms-2">Mật khẩu</label>
+                        <input type="password" id="regPass" class="form-control rounded-pill p-3" placeholder="Ít nhất 6 ký tự" required>
+                        <div class="invalid-feedback ms-3 small">Mật khẩu phải từ 6 ký tự trở lên!</div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-medium small ms-2">Nhập lại mật khẩu</label>
+                        <input type="password" id="regConfirmPass" class="form-control rounded-pill p-3" placeholder="Xác nhận lại mật khẩu" required>
+                        <div class="invalid-feedback ms-3 small">Mật khẩu xác nhận lại không trùng khớp!</div>
+                    </div>
+                    <button type="submit" class="btn btn-yellow w-100 rounded-pill py-3 fw-bold text-dark mb-3">Đăng ký tài khoản</button>
+                    <p class="text-center small mb-0">Đã có tài khoản? <a href="#" class="text-indigo fw-bold text-decoration-none" data-bs-target="#loginModal" data-bs-toggle="modal">Đăng nhập</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Forgot Password Modal -->
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 rounded-4 shadow">
+            <div class="modal-body p-5">
+                <div class="text-center mb-4">
+                    <h3 class="fw-bold mb-1" id="forgotModalTitle">Quên mật khẩu</h3>
+                    <p class="text-muted small" id="forgotModalDesc">Nhập email của bạn để nhận mã OTP khôi phục qua Email.</p>
+                </div>
+                <form id="forgotPasswordForm" novalidate>
+                    
+                    <div id="forgotStep1">
+                        <div class="mb-4">
+                            <label class="form-label fw-medium small ms-2">Email đã đăng ký</label>
+                            <input type="email" id="forgotEmail" class="form-control rounded-pill p-3" placeholder="email@example.com" required>
+                            <div class="invalid-feedback ms-3 small"></div>
+                        </div>
+                        <button type="submit" class="btn btn-indigo w-100 rounded-pill py-3 fw-bold mb-3" id="btnForgotSubmit">Gửi mã khôi phục</button>
+                    </div>
+
+                    <div id="forgotStep2" class="d-none">
+                        <div class="mb-3">
+                            <label class="form-label fw-medium small ms-2">Nhập mã OTP (6 số)</label>
+                            <input type="text" id="forgotOTP" class="form-control rounded-pill p-3 text-center fw-bold fs-5" placeholder="• • • • • •" maxlength="6" required>
+                            <div class="invalid-feedback ms-3 small">Mã OTP nhập vào không chính xác!</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium small ms-2">Mật khẩu mới</label>
+                            <input type="password" id="forgotNewPass" class="form-control rounded-pill p-3" placeholder="Ít nhất 6 ký tự" required>
+                            <div class="invalid-feedback ms-3 small">Mật khẩu mới phải từ 6 ký tự trở lên!</div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-medium small ms-2">Xác nhận mật khẩu mới</label>
+                            <input type="password" id="forgotConfirmNewPass" class="form-control rounded-pill p-3" placeholder="Nhập lại mật khẩu mới" required>
+                            <div class="invalid-feedback ms-3 small">Mật khẩu nhập lại không khớp!</div>
+                        </div>
+                        <button type="button" class="btn btn-indigo w-100 rounded-pill py-3 fw-bold mb-3" id="btnConfirmReset">Xác nhận đổi mật khẩu</button>
+                    </div>
+
+                    <p class="text-center small mb-0"><a href="#" class="text-indigo fw-bold text-decoration-none" data-bs-target="#loginModal" data-bs-toggle="modal">Quay lại Đăng nhập</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

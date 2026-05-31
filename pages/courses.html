@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khóa học - Moonsilk</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-light">
+
+    <div id="header-placeholder"></div>
+
+    <main class="container my-5">
+        <div class="bg-white p-4 rounded-4 shadow-sm text-center mb-5 mt-4 border mx-auto" style="max-width: 800px;">
+            <h1 class="fw-bold text-indigo mb-2">Chương trình đào tạo</h1>
+            <p class="text-muted lead mb-0">Lựa chọn chương trình học phù hợp để đạt mục tiêu nhanh nhất</p>
+        </div>
+
+        <div class="d-flex justify-content-center mb-5">
+            <div class="bg-white p-2 rounded-pill shadow-sm d-inline-flex gap-2 border">
+                <button class="btn btn-outline-indigo border-0 rounded-pill filter-btn fw-medium active" data-filter="all">Tất cả</button>
+                <button class="btn btn-outline-indigo border-0 rounded-pill filter-btn fw-medium" data-filter="giao-tiep">Giao tiếp</button>
+                <button class="btn btn-outline-indigo border-0 rounded-pill filter-btn fw-medium" data-filter="ielts">IELTS</button>
+                <button class="btn btn-outline-indigo border-0 rounded-pill filter-btn fw-medium" data-filter="ngu-phap">Ngữ pháp</button>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Khóa học 1 -->
+            <div class="col-md-4 course-item giao-tiep">
+                <div class="card border-0 rounded-4 shadow-sm h-100 overflow-hidden">
+                    <img src="https://placehold.co/400x200/e0e7ff/4f46e5?text=Tiếng+Anh+Giao+Tiếp" class="card-img-top" alt="Course Image">
+                    <div class="card-body p-4">
+                        <span class="badge bg-danger rounded-pill mb-2">Phổ biến nhất</span>
+                        <h5 class="card-title fw-bold">Tiếng Anh Giao Tiếp</h5>
+                        <p class="card-text text-muted small">Tự tin giao tiếp trong môi trường công sở và đời sống hàng ngày với các chủ đề thực tế.</p>
+                        <hr>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold text-indigo">48 Bài học</span>
+                            <a href="#" class="btn btn-outline-indigo rounded-pill btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal">Tham gia</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Khóa học 2 -->
+            <div class="col-md-4 course-item ielts">
+                <div class="card border-0 rounded-4 shadow-sm h-100 overflow-hidden">
+                    <img src="https://placehold.co/400x200/fff3cd/ffca28?text=IELTS+Căn+Bản" class="card-img-top" alt="Course Image">
+                    <div class="card-body p-4">
+                        <span class="badge bg-warning text-dark rounded-pill mb-2">Mới</span>
+                        <h5 class="card-title fw-bold">IELTS Căn Bản (4.5 - 5.5)</h5>
+                        <p class="card-text text-muted small">Xây dựng nền tảng vững chắc cho 4 kỹ năng Nghe, Nói, Đọc, Viết chuẩn cấu trúc đề thi IELTS.</p>
+                        <hr>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold text-indigo">60 Bài học</span>
+                            <a href="#" class="btn btn-outline-indigo rounded-pill btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal">Tham gia</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Khóa học 3 -->
+            <div class="col-md-4 course-item ngu-phap">
+                <div class="card border-0 rounded-4 shadow-sm h-100 overflow-hidden">
+                    <img src="https://placehold.co/400x200/d1e7dd/198754?text=Ngữ+Pháp+Toàn+Diện" class="card-img-top" alt="Course Image">
+                    <div class="card-body p-4">
+                        <span class="badge bg-success rounded-pill mb-2">Cơ bản</span>
+                        <h5 class="card-title fw-bold">Ngữ Pháp Toàn Diện</h5>
+                        <p class="card-text text-muted small">Nắm vững hệ thống ngữ pháp tiếng Anh từ cơ bản đến nâng cao thông qua hàng ngàn bài tập.</p>
+                        <hr>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold text-indigo">35 Bài học</span>
+                            <a href="#" class="btn btn-outline-indigo rounded-pill btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal">Tham gia</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-indigo text-white p-5 rounded-4 mt-5 text-center shadow">
+            <h3 class="fw-bold mb-3">Bạn không chắc nên chọn khóa học nào?</h3>
+            <p class="mb-4">Hãy làm bài kiểm tra năng lực đầu vào hoàn toàn miễn phí để được tư vấn lộ trình phù hợp.</p>
+            <button class="btn btn-yellow px-4 py-2 rounded-pill fw-bold text-dark" data-bs-toggle="modal" data-bs-target="#registerModal">Kiểm tra năng lực ngay</button>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="modals-placeholder"></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/load-components.js"></script>
+    <script src="../js/courses.js"></script>
+</body>
+</html>

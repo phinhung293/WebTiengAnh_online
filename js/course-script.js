@@ -9,7 +9,7 @@ $(document).ready(function() {
     
     if (!currentEmail) {
         // Chưa đăng nhập, chuyển về trang chủ
-        window.location.href = "index.html";
+        window.location.replace("../index.html");
         return;
     }
     
@@ -24,7 +24,7 @@ $(document).ready(function() {
     $('#btnLogout').on('click', function(e) {
         e.preventDefault();
         localStorage.removeItem('moonsilk_email');
-        window.location.href = "index.html";
+        window.location.href = "../index.html";
     });
     
     // ===================================================

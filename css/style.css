@@ -63,6 +63,24 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+.btn-outline-indigo {
+    color: var(--indigo) !important;
+    border: 2px solid var(--indigo) !important;
+    background-color: transparent !important;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-indigo:hover,
+.btn-outline-indigo.active {
+    background: linear-gradient(to right, #a5b4fc, #818cf8) !important;
+    color: white !important;
+    border-color: transparent !important;
+}
+
+.bg-yellow {
+    background-color: var(--yellow) !important;
+}
+
 .btn-pill { border-radius: 50px !important; }
 
 /* ===================================================
@@ -70,7 +88,7 @@
    =================================================== */
 body {
     font-family: 'Be Vietnam Pro', sans-serif;
-    background-image: url('/img/background.png'); 
+    background-image: url('../img/background.png'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
