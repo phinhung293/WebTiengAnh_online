@@ -93,6 +93,12 @@ body {
   text-decoration: none;
   color: var(--text-dark);
   border-radius: var(--radius-card);
+  transition: all 0.3s ease;
+}
+
+.sidebar__nav-item:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(4px);
 }
 
 .sidebar__nav-highlight {
@@ -227,6 +233,10 @@ body {
   border-radius: var(--radius-card);
   border: 1px solid rgba(255, 255, 255, 0.7);
   box-shadow: 0 4px 16px rgba(140, 125, 160, 0.04);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.ui-card:hover {
+  box-shadow: 0 8px 24px rgba(140, 125, 160, 0.12);
 }
 
 /* Welcome Card */
@@ -242,8 +252,16 @@ body {
 .welcome-card__motivate { font-size: 12px; color: var(--text-soft); margin-bottom: 8px; }
 .welcome-card__btn-action {
   background: linear-gradient(to right, #fcd34d, #fbbf24);
-  border-radius: 40px; width: 130px; height: 30px; font-size: 11px; font-weight: 600;
-  box-shadow: 0 3px 6px rgba(251, 191, 36, 0.15);
+  border: none;
+  color: #fff;
+  border-radius: 40px; width: 140px; height: 34px; font-size: 12px; font-weight: 600;
+  box-shadow: 0 3px 6px rgba(251, 191, 36, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.welcome-card__btn-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(251, 191, 36, 0.35);
 }
 .welcome-card__last-lesson { font-size: 11.5px; margin-top: 6px; font-weight: 500; }
 .welcome-card__last-lesson .arrow { color: #e76db6; font-weight: 700; }
@@ -263,6 +281,12 @@ body {
   gap: 12px;
   padding: 8px 14px;
   border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.course-mini:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(130, 80, 150, 0.1);
 }
 .course-mini .c-icon {
   width: 32px;
@@ -280,7 +304,16 @@ body {
 
 /* Feed Community */
 .feed-container { background: rgba(255, 255, 255, 0.7); }
-.feed-post { background: rgba(255, 220, 250, 0.28); border: 1px solid rgba(130, 80, 150, 0.06); border-radius: 10px; padding: 10px 12px; }
+.feed-post { 
+  background: rgba(255, 220, 250, 0.28); 
+  border: 1px solid rgba(130, 80, 150, 0.06); 
+  border-radius: 10px; 
+  padding: 10px 12px; 
+  transition: background 0.3s ease;
+}
+.feed-post:hover {
+  background: rgba(255, 220, 250, 0.45);
+}
 .feed-post__meta-bar { display: flex; align-items: center; position: relative; margin-bottom: 4px; }
 .feed-post__avatar-mock { font-size: 24px; color: #a5b4fc; margin-right: 8px; line-height: 1; }
 .feed-post__user-info { display: flex; align-items: center; gap: 4px; font-size: 12px; }
@@ -317,7 +350,8 @@ body {
 .donut-center-text .sub { font-size: 9px; color: var(--text-muted); text-align: center; }
 
 /* Sự kiện Event */
-.event-row { display: flex; align-items: center; gap: 10px; }
+.event-row { display: flex; align-items: center; gap: 10px; transition: transform 0.2s ease; cursor: pointer; padding: 6px; border-radius: 8px; }
+.event-row:hover { transform: translateX(4px); background: rgba(243, 232, 255, 0.4); }
 .event-icon-box { width: 34px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
 .bg-pink-tint { background: #ffebee; }
 .bg-purple-tint { background: #f3e8ff; }
