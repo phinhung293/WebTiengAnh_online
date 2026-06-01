@@ -82,3 +82,6 @@
     width: 24px;
     text-align: center;
 }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) { .feed-post__message { padding-left: 0; } .feed-post__buttons { padding-left: 0; justify-content: space-between; } .action-btn { padding: 4px 10px; font-size: 11px; } }

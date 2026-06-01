@@ -53,3 +53,6 @@
 .bg-gradient-gold { background: linear-gradient(135deg, #fffbeb, #fef3c7); }
 .bg-purple-tint { background: #f3e8ff; }
 .bg-pink-tint { background: #fce7f3; }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) { .profile-banner__bg { height: 90px; } .profile-avatar-box { width: 90px; height: 90px; margin-top: -45px; } .profile-name { font-size: 22px; } .badge-icon { width: 40px; height: 40px; font-size: 16px; } }

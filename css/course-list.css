@@ -170,3 +170,24 @@
     align-items: center;
     gap: 4px;
 }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .course-list-body {
+        padding: 15px 12px;
+    }
+    .filter-bar {
+        flex-wrap: nowrap;
+        padding-bottom: 4px;
+    }
+    .filter-item {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    .course-search-input {
+        width: 200px;
+    }
+    .course-card__img-box {
+        height: 140px;
+    }
+}

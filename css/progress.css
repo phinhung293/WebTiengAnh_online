@@ -32,3 +32,6 @@
 .bg-purple { background-color: #c59fff; }
 .bg-pink { background-color: #f9a8d4; }
 .bg-orange { background-color: #fbbf24; }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) { .stat-card { padding: 15px !important; } .stat-icon { width: 40px; height: 40px; font-size: 20px; } .chart-container { height: 200px; } }

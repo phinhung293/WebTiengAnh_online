@@ -58,3 +58,6 @@
 .bg-danger-subtle-light {
     background-color: rgba(254, 226, 226, 0.3);
 }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) { .ui-card { padding: 15px !important; } .nav-pills .nav-link { padding: 8px 12px; font-size: 13px; } }
