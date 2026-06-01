@@ -101,14 +101,59 @@
             </header>
 
             <main class="content-body page-body">
+                <style>
+                    .practice-mode-card {
+                        transition: all 0.3s ease;
+                    }
+                    .practice-mode-card:not(.active):hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+                        border-color: #f9a8d4 !important;
+                    }
+                    .practice-mode-card.active {
+                        border: 2px solid #c59fff !important; 
+                        background: #f3e8ff;
+                    }
+                </style>
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h1 class="page-title m-0">Practice Arena</h1>
                 </div>
 
                 <div class="row g-4">
                     <div class="col-lg-8">
+                        <!-- Practice Modes -->
+                        <div class="ui-card p-4 mb-4">
+                            <h3 class="fs-5 fw-bold mb-3">Practice Modes</h3>
+                            <div class="row g-3">
+                                <div class="col-md-3 col-6">
+                                    <div class="practice-mode-card active text-center p-3 rounded-4" id="mode-flashcards" style="border: 1px solid #e2e8f0; cursor: pointer;">
+                                        <i class="bi bi-card-text fs-2 text-purple"></i>
+                                        <p class="mb-0 mt-2 fw-semibold small text-dark">Flashcards</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <div class="practice-mode-card text-center p-3 rounded-4" id="mode-grammar" style="border: 1px solid #e2e8f0; cursor: pointer;">
+                                        <i class="bi bi-ui-checks-grid fs-2 text-pink"></i>
+                                        <p class="mb-0 mt-2 fw-semibold small text-dark">Grammar Quiz</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <div class="practice-mode-card text-center p-3 rounded-4" id="mode-speaking" style="border: 1px solid #e2e8f0; cursor: pointer;">
+                                        <i class="bi bi-mic-fill fs-2 text-orange"></i>
+                                        <p class="mb-0 mt-2 fw-semibold small text-dark">Speaking</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <div class="practice-mode-card text-center p-3 rounded-4" id="mode-listening" style="border: 1px solid #e2e8f0; cursor: pointer;">
+                                        <i class="bi bi-headphones fs-2 text-info"></i>
+                                        <p class="mb-0 mt-2 fw-semibold small text-dark">Listening</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Flashcard Area -->
-                        <div class="ui-card p-4 flashcard-container text-center">
+                        <div class="ui-card p-4 flashcard-container text-center" id="content-flashcards">
                             <div class="flashcard mb-4" id="flashcard">
                                 <div class="flashcard-inner">
                                     <div class="flashcard-front">
@@ -135,6 +180,55 @@
                                 </button>
                             </div>
                             <p class="text-muted small mt-3">Card 1 of 10 in "Advanced Vocabulary"</p>
+                        </div>
+
+                        <!-- Grammar Area -->
+                        <div class="ui-card p-4 d-none" id="content-grammar">
+                            <h4 class="mb-4 text-pink">Grammar Quiz</h4>
+                            <p class="fs-5 mb-4 fw-medium text-dark">She _____ to the store yesterday.</p>
+                            <div class="d-flex flex-column gap-3">
+                                <button class="btn btn-outline-secondary text-start p-3 rounded-pill fw-medium">A. go</button>
+                                <button class="btn btn-outline-secondary text-start p-3 rounded-pill fw-medium">B. goes</button>
+                                <button class="btn btn-outline-purple text-start p-3 rounded-pill fw-medium">C. went</button>
+                                <button class="btn btn-outline-secondary text-start p-3 rounded-pill fw-medium">D. going</button>
+                            </div>
+                            <div class="mt-4 text-end">
+                                <button class="btn btn-purple rounded-pill px-4 btn-shadow">Check Answer</button>
+                            </div>
+                        </div>
+
+                        <!-- Speaking Area -->
+                        <div class="ui-card p-4 text-center d-none" id="content-speaking">
+                            <h4 class="mb-3 text-orange">Speaking Practice</h4>
+                            <p class="text-muted mb-4">Read the sentence below out loud:</p>
+                            <div class="p-4 bg-light rounded-4 mb-4" style="border: 2px dashed #e2e8f0;">
+                                <h3 class="fw-bold text-dark mb-0">"I am learning English to improve my career."</h3>
+                            </div>
+                            
+                            <div class="recording-ui mb-3">
+                                <button class="btn btn-pink rounded-circle p-4 mb-3 btn-shadow" style="width: 80px; height: 80px;">
+                                    <i class="bi bi-mic-fill fs-1"></i>
+                                </button>
+                                <p class="text-pink fw-semibold">Click to Record</p>
+                            </div>
+                        </div>
+
+                        <!-- Listening Area -->
+                        <div class="ui-card p-4 d-none" id="content-listening">
+                            <h4 class="mb-4 text-info">Listening Comprehension</h4>
+                            <div class="d-flex align-items-center gap-3 p-3 rounded-pill mb-4" style="background: #e0f2fe;">
+                                <button class="btn btn-info text-white rounded-circle p-2" style="width:40px; height:40px;"><i class="bi bi-play-fill fs-5"></i></button>
+                                <div class="flex-grow-1 bg-white rounded-pill" style="height: 6px;">
+                                    <div class="bg-info h-100 rounded-pill" style="width: 30%;"></div>
+                                </div>
+                                <span class="small text-muted fw-semibold me-2">0:12 / 1:00</span>
+                            </div>
+                            <p class="fs-5 mb-3 fw-medium text-dark">What is the speaker's main topic?</p>
+                            <div class="d-flex flex-column gap-3">
+                                <button class="btn btn-outline-secondary text-start p-3 rounded-pill fw-medium">Travel plans</button>
+                                <button class="btn btn-outline-secondary text-start p-3 rounded-pill fw-medium">Business meeting</button>
+                                <button class="btn btn-outline-secondary text-start p-3 rounded-pill fw-medium">Weather forecast</button>
+                            </div>
                         </div>
                     </div>
                     
@@ -198,6 +292,21 @@
             // Flashcard Flip
             $('#btnFlip, #flashcard').on('click', function() {
                 $('#flashcard').toggleClass('flipped');
+            });
+            
+            // Practice Mode Switcher
+            $('.practice-mode-card').on('click', function() {
+                // Update active button
+                $('.practice-mode-card').removeClass('active');
+                $(this).addClass('active');
+                
+                // Hide all contents
+                $('#content-flashcards, #content-grammar, #content-speaking, #content-listening').addClass('d-none');
+                
+                // Show selected content
+                const modeId = $(this).attr('id');
+                const contentId = modeId.replace('mode-', 'content-');
+                $('#' + contentId).removeClass('d-none');
             });
         });
     </script>
