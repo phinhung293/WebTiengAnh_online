@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moonsilk – Community</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/community.css" />
+</head>
+<body>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar__logo-wrap">
+                <img class="sidebar__logo-img" src="../img/logo.png" alt="Moonsilk Logo" />
+            </div>
+
+            <nav class="sidebar__nav">
+                <a href="dashboard.html" class="sidebar__nav-item">
+                    <i class="bi bi-house-door-fill sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">Dashboard</span>
+                </a>
+
+                <a href="course-list.html" class="sidebar__nav-item">
+                    <i class="bi bi-book-fill sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">My Courses</span>
+                </a>
+
+                <a href="practice.html" class="sidebar__nav-item">
+                    <i class="bi bi-pencil-fill sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">Practice</span>
+                </a>
+
+                <a href="community.html" class="sidebar__nav-item sidebar__nav-item--active">
+                    <span class="sidebar__nav-highlight"></span>
+                    <i class="bi bi-globe2 sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">Community</span>
+                </a>
+
+                <a href="progress.html" class="sidebar__nav-item">
+                    <i class="bi bi-bar-chart-line-fill sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">Progress</span>
+                </a>
+
+                <a href="settings.html" class="sidebar__nav-item">
+                    <i class="bi bi-gear-fill sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+            
+            <header class="header-bar">
+                <div class="d-flex align-items-center gap-2">
+                    <button class="header-hamburger d-lg-none" id="hamburgerBtn" aria-label="Toggle Menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                    
+                    <div class="header-bar__search">
+                        <i class="bi bi-search text-muted me-2"></i>
+                        <input class="header-bar__search-input" type="search" placeholder="Search community..." />
+                    </div>
+                </div>
+
+                <div class="header-bar__user-area">
+                    <div class="position-relative notification-bell-box">
+                        <i class="bi bi-bell-fill fs-5 text-secondary"></i>
+                        <span class="badge-dot"></span>
+                    </div>
+                    <span class="header-bar__divider">|</span>
+                    
+                    <div class="dropdown">
+                        <div class="d-flex align-items-center gap-2 user-profile-trigger" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                            <div class="avatar-vector-box">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                            <span class="header-bar__username" id="displayName">User name</span>
+                            <i class="bi bi-chevron-down text-muted smaller"></i>
+                        </div>
+                        
+                        <ul class="dropdown-menu dropdown-menu-end custom-user-menu border-0 shadow mt-2">
+                            <li><a class="dropdown-item py-2" href="profile.html"><span class="small">📚 Hồ sơ học tập</span></a></li>
+                            <li><a class="dropdown-item py-2" href="account-settings.html"><span class="small">⚙️ Cài đặt tài khoản</span></a></li>
+                            <li><hr class="dropdown-divider opacity-50" /></li>
+                            <li><a class="dropdown-item py-2 text-danger fw-medium" href="#" id="btnLogout">🔑 Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <main class="content-body page-body row g-4">
+                <div class="col-xl-8 col-lg-7 d-flex flex-column gap-4">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <h1 class="page-title m-0">Community</h1>
+                        <button class="btn btn-purple rounded-pill px-4 text-white">Join Room</button>
+                    </div>
+
+                    <!-- Create Post -->
+                    <div class="ui-card p-3 create-post-card">
+                        <div class="d-flex gap-3">
+                            <div class="avatar-vector-box" style="width:40px; height:40px; font-size:18px;">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <textarea class="form-control post-input" rows="2" placeholder="Share your learning progress or ask a question..."></textarea>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <div class="d-flex gap-2 text-muted">
+                                        <i class="bi bi-image post-action-icon"></i>
+                                        <i class="bi bi-emoji-smile post-action-icon"></i>
+                                    </div>
+                                    <button class="btn btn-sm btn-pink rounded-pill px-4">Post</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feed -->
+                    <div class="feed-posts d-flex flex-column gap-3">
+                        <!-- Post 1 -->
+                        <div class="ui-card p-4 community-post">
+                            <div class="feed-post__meta-bar mb-3">
+                                <div class="avatar-vector-box me-2"><i class="bi bi-person-fill"></i></div>
+                                <div class="feed-post__user-info flex-grow-1">
+                                    <span class="name fw-bold">Alex Nguyen</span>
+                                    <span class="dot text-muted">•</span>
+                                    <span class="time text-muted">2h ago</span>
+                                </div>
+                                <i class="bi bi-three-dots text-muted" style="cursor: pointer;"></i>
+                            </div>
+                            <p class="community-post__text">Just finished the Advanced Grammar challenge! Can anyone recommend a good book for reading practice? 📚✨</p>
+                            <div class="community-post__actions d-flex gap-4 mt-3 pt-3 border-top">
+                                <div class="action-btn active"><i class="bi bi-heart-fill text-danger"></i> 24</div>
+                                <div class="action-btn"><i class="bi bi-chat-text"></i> 8 Comments</div>
+                                <div class="action-btn ms-auto"><i class="bi bi-share"></i> Share</div>
+                            </div>
+                        </div>
+
+                        <!-- Post 2 -->
+                        <div class="ui-card p-4 community-post">
+                            <div class="feed-post__meta-bar mb-3">
+                                <div class="avatar-vector-box me-2" style="background:#ffdbe7; color:#f43f5e;"><i class="bi bi-person-fill"></i></div>
+                                <div class="feed-post__user-info flex-grow-1">
+                                    <span class="name fw-bold">Sarah Tran</span>
+                                    <span class="dot text-muted">•</span>
+                                    <span class="time text-muted">5h ago</span>
+                                </div>
+                                <i class="bi bi-three-dots text-muted" style="cursor: pointer;"></i>
+                            </div>
+                            <p class="community-post__text">Looking for a speaking partner to practice for IELTS next month. Hit me up if you are interested! 🗣️</p>
+                            <div class="community-post__actions d-flex gap-4 mt-3 pt-3 border-top">
+                                <div class="action-btn"><i class="bi bi-heart"></i> 15</div>
+                                <div class="action-btn"><i class="bi bi-chat-text"></i> 12 Comments</div>
+                                <div class="action-btn ms-auto"><i class="bi bi-share"></i> Share</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-4 col-lg-5">
+                    <!-- Leaderboard -->
+                    <div class="ui-card p-4 sticky-top" style="top: 84px;">
+                        <h3 class="fs-5 fw-bold mb-4 d-flex align-items-center gap-2">
+                            <i class="bi bi-trophy-fill text-warning"></i> Leaderboard
+                        </h3>
+                        
+                        <div class="leaderboard-list">
+                            <div class="leaderboard-item d-flex align-items-center gap-3 mb-3 p-2 rounded-3 bg-gradient-gold shadow-sm">
+                                <div class="rank fw-bold text-dark fs-5">1</div>
+                                <div class="avatar-vector-box bg-white"><i class="bi bi-person-fill"></i></div>
+                                <div class="flex-grow-1">
+                                    <div class="fw-bold fs-6">John Doe</div>
+                                    <div class="small text-muted">2,450 XP</div>
+                                </div>
+                                <i class="bi bi-award-fill text-warning fs-4"></i>
+                            </div>
+
+                            <div class="leaderboard-item d-flex align-items-center gap-3 mb-3 p-2 rounded-3">
+                                <div class="rank fw-bold text-muted fs-5">2</div>
+                                <div class="avatar-vector-box"><i class="bi bi-person-fill"></i></div>
+                                <div class="flex-grow-1">
+                                    <div class="fw-bold fs-6">Alex Nguyen</div>
+                                    <div class="small text-muted">2,120 XP</div>
+                                </div>
+                            </div>
+
+                            <div class="leaderboard-item d-flex align-items-center gap-3 mb-3 p-2 rounded-3">
+                                <div class="rank fw-bold text-muted fs-5">3</div>
+                                <div class="avatar-vector-box"><i class="bi bi-person-fill"></i></div>
+                                <div class="flex-grow-1">
+                                    <div class="fw-bold fs-6">Sarah Tran</div>
+                                    <div class="small text-muted">1,980 XP</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-outline-purple w-100 mt-3 rounded-pill">View Full Ranking</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/auth.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Sidebar toggle for mobile
+            $('#hamburgerBtn').on('click', function() {
+                $(this).toggleClass('is-active');
+                $('#sidebar').toggleClass('is-open');
+                $('#sidebarOverlay').toggleClass('is-active');
+            });
+
+            $('#sidebarOverlay').on('click', function() {
+                $('#hamburgerBtn').removeClass('is-active');
+                $('#sidebar').removeClass('is-open');
+                $(this).removeClass('is-active');
+            });
+        });
+    </script>
+</body>
+</html>

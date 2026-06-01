@@ -26,30 +26,30 @@
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar__logo-wrap">
-             <a href="../index.html"><img class="sidebar__logo-img" src="../img/logo.png" alt="Moonsilk Logo" /></a>
+             <img class="sidebar__logo-img" src="../img/logo.png" alt="Moonsilk Logo" />
         </div>
         <nav class="sidebar__nav">
             <a href="dashboard.html" class="sidebar__nav-item">
                 <i class="bi bi-house-door-fill sidebar__nav-icon"></i>
                 <span class="sidebar__nav-label">Dashboard</span>
             </a>
-            <a href="course.html" class="sidebar__nav-item sidebar__nav-item--active">
+            <a href="course-list.html" class="sidebar__nav-item sidebar__nav-item--active">
                 <i class="bi bi-book-fill sidebar__nav-icon"></i>
                 <span class="sidebar__nav-label">My Courses</span>
             </a>
-            <a href="#" class="sidebar__nav-item">
+            <a href="practice.html" class="sidebar__nav-item">
                 <i class="bi bi-pencil-fill sidebar__nav-icon"></i>
                 <span class="sidebar__nav-label">Practice</span>
             </a>
-            <a href="#" class="sidebar__nav-item">
+            <a href="community.html" class="sidebar__nav-item">
                 <i class="bi bi-globe2 sidebar__nav-icon"></i>
                 <span class="sidebar__nav-label">Community</span>
             </a>
-            <a href="#" class="sidebar__nav-item">
+            <a href="progress.html" class="sidebar__nav-item">
                 <i class="bi bi-bar-chart-line-fill sidebar__nav-icon"></i>
                 <span class="sidebar__nav-label">Progress</span>
             </a>
-            <a href="#" class="sidebar__nav-item">
+            <a href="settings.html" class="sidebar__nav-item">
                 <i class="bi bi-gear-fill sidebar__nav-icon"></i>
                 <span class="sidebar__nav-label">Settings</span>
             </a>
@@ -88,8 +88,8 @@
                         </div>
                         
                         <ul class="dropdown-menu dropdown-menu-end custom-user-menu border-0 shadow mt-2">
-                            <li><a class="dropdown-item py-2" href="#"><span class="small">📚 Hồ sơ học tập</span></a></li>
-                            <li><a class="dropdown-item py-2" href="#"><span class="small">⚙️ Cài đặt tài khoản</span></a></li>
+                            <li><a class="dropdown-item py-2" href="profile.html"><span class="small">📚 Hồ sơ học tập</span></a></li>
+                            <li><a class="dropdown-item py-2" href="account-settings.html"><span class="small">⚙️ Cài đặt tài khoản</span></a></li>
                             <li><hr class="dropdown-divider opacity-50" /></li>
                             <li><a class="dropdown-item py-2 text-danger fw-medium" href="#" id="btnLogout">🔑 Đăng xuất</a></li>
                         </ul>
@@ -107,17 +107,18 @@
                 <div class="ui-card">
                     <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
                         <div class="d-flex align-items-center gap-2">
-                            <h1 class="fs-2 fw-bold m-0">Lesson 1: Grammar Basic</h1>
+                            <h1 class="fs-2 fw-bold m-0">Module 2: Simple Present Tense</h1>
                             <i class="bi bi-star-fill text-warning fs-4"></i>
                         </div>
-                        <button class="btn btn-outline-secondary btn-sm" id="backToCourseBtn">&lt; Back to Course</button>
+                        <button
+    class="btn btn-outline-secondary btn-sm" onclick="window.location.href='lesson-list.html'"> <i class="bi bi-arrow-left"></i> Back to Modules</button>
                     </div>
 
                     <!-- Banner -->
                     <div class="lesson-banner">
                         <div>
-                            <span class="lesson-badge">Lesson 1</span>
-                            <h2 class="lesson-banner__heading">Grammar Basic:<br>Present Simple</h2>
+                            <span class="lesson-badge">Module 2</span>
+                            <h2 class="lesson-banner__heading">Simple Present Tense</h2>
                             <p class="lesson-banner__desc">Học cách sử dụng hiện tại đơn<br>trong các tình huống hằng ngày.</p>
                             <button class="btn-pink" id="continueLessonBtn">
                                 <i class="bi bi-play-fill"></i> Continue Lesson

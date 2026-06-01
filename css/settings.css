@@ -1,0 +1,63 @@
+/* settings.css */
+
+.page-body {
+    padding: 24px 30px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+/* Custom Toggle Switch (Pastel) */
+.custom-switch .form-check-input {
+    width: 44px;
+    height: 24px;
+    background-color: #e2e8f0;
+    border-color: #e2e8f0;
+    cursor: pointer;
+}
+.custom-switch .form-check-input:checked {
+    background-color: #c59fff;
+    border-color: #c59fff;
+}
+.custom-switch .form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(197, 159, 255, 0.25);
+}
+
+/* Custom Select & Inputs */
+.custom-select, .custom-input {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+.custom-select:focus, .custom-input:focus {
+    border-color: #c59fff;
+    box-shadow: 0 0 0 3px rgba(197, 159, 255, 0.15);
+    background-color: white;
+}
+
+/* Buttons */
+.btn-purple { background-color: #c59fff; border: none; color: white; }
+.btn-purple:hover { background-color: #b388ff; color: white; }
+.text-purple { color: #9333ea; }
+.btn-outline-purple { border: 1px solid #c59fff; color: #9333ea; background: transparent; }
+.btn-outline-purple:hover { background: #f3e8ff; color: #9333ea; }
+
+.bg-danger-subtle-light {
+    background-color: rgba(254, 226, 226, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) { .ui-card { padding: 15px !important; } .nav-pills .nav-link { padding: 8px 12px; font-size: 13px; } }

@@ -19,7 +19,7 @@
         
         <aside class="sidebar" id="sidebar">
             <div class="sidebar__logo-wrap">
-                <a href="../index.html"><img class="sidebar__logo-img" src="../img/logo.png" alt="Moonsilk Logo" /></a>
+                <img class="sidebar__logo-img" src="../img/logo.png" alt="Moonsilk Logo" /></a>
             </div>
 
             <nav class="sidebar__nav">
@@ -29,27 +29,27 @@
                     <span class="sidebar__nav-label">Dashboard</span>
                 </a>
 
-                <a href="course.html" class="sidebar__nav-item">
+                <a href="course-list.html" class="sidebar__nav-item">
                     <i class="bi bi-book-fill sidebar__nav-icon-v"></i>
                     <span class="sidebar__nav-label">My Courses</span>
                 </a>
 
-                <a href="#" class="sidebar__nav-item">
+                <a href="practice.html" class="sidebar__nav-item">
                     <i class="bi bi-pencil-fill sidebar__nav-icon-v"></i>
                     <span class="sidebar__nav-label">Practice</span>
                 </a>
 
-                <a href="#" class="sidebar__nav-item">
+                <a href="community.html" class="sidebar__nav-item">
                     <i class="bi bi-globe2 sidebar__nav-icon-v"></i>
                     <span class="sidebar__nav-label">Community</span>
                 </a>
 
-                <a href="#" class="sidebar__nav-item">
+                <a href="progress.html" class="sidebar__nav-item">
                     <i class="bi bi-bar-chart-line-fill sidebar__nav-icon-v"></i>
                     <span class="sidebar__nav-label">Progress</span>
                 </a>
 
-                <a href="#" class="sidebar__nav-item">
+                <a href="settings.html" class="sidebar__nav-item">
                     <i class="bi bi-gear-fill sidebar__nav-icon-v"></i>
                     <span class="sidebar__nav-label">Settings</span>
                 </a>
@@ -63,11 +63,7 @@
                     <button class="header-hamburger d-lg-none" id="hamburgerBtn" aria-label="Toggle Menu">
                         <span></span><span></span><span></span>
                     </button>
-                    
-                    <div class="header-bar__search">
-                        <i class="bi bi-search text-muted me-2"></i>
-                        <input class="header-bar__search-input" type="search" placeholder="Search for lessons, courses..." />
-                    </div>
+                
                 </div>
 
                 <div class="header-bar__user-area">
@@ -87,8 +83,8 @@
                         </div>
                         
                         <ul class="dropdown-menu dropdown-menu-end custom-user-menu border-0 shadow mt-2">
-                            <li><a class="dropdown-item py-2" href="#"><span class="small">📚 Hồ sơ học tập</span></a></li>
-                            <li><a class="dropdown-item py-2" href="#"><span class="small">⚙️ Cài đặt tài khoản</span></a></li>
+                            <li><a class="dropdown-item py-2" href="profile.html"><span class="small">📚 Hồ sơ học tập</span></a></li>
+                            <li><a class="dropdown-item py-2" href="account-settings.html"><span class="small">⚙️ Cài đặt tài khoản</span></a></li>
                             <li><hr class="dropdown-divider opacity-50" /></li>
                             <li><a class="dropdown-item py-2 text-danger fw-medium" href="#" id="btnLogout">🔑 Đăng xuất</a></li>
                         </ul>
@@ -105,7 +101,7 @@
                             <p class="welcome-card__greet">Welcome back,</p>
                             <h2 class="welcome-card__user">User ✨</h2>
                             <p class="welcome-card__motivate">Keep going! You're doing great.</p>
-                            <button class="welcome-card__btn-action">Continue Learning</button>
+                            <button class="welcome-card__btn-action" onclick="window.location.href='lesson-list.html'">Continue Learning</button>
                             <p class="welcome-card__last-lesson">
                                 Lesson 1: Grammar Basic <span class="arrow">&gt;</span>
                             </p>
@@ -116,7 +112,7 @@
                     <section class="ui-card px-3 py-3">
                         <div class="section-header mb-3">
                             <h3 class="section-title">My Courses</h3>
-                            <a href="#" class="section-seeall">See all</a>
+                            <a href="course-list.html" class="section-seeall">See all</a>
                         </div>
                         <div class="row g-2">
                             <div class="col-md-4 col-6">
@@ -143,7 +139,7 @@
                     <section class="ui-card feed-container px-3 py-3">
                         <div class="section-header mb-3">
                             <h3 class="section-title">Community Feed</h3>
-                            <a href="#" class="section-seeall">See all</a>
+                            <a href="community.html" class="section-seeall">See all</a>
                         </div>
 
                         <article class="feed-post mb-2">

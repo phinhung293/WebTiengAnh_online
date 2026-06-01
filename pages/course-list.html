@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moonsilk – My Courses</title>
+    
+    <!-- Bootstrap CSS + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/course-list.css" />
+</head>
+<body>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar__logo-wrap">
+                <img class="sidebar__logo-img" src="../img/logo.png" alt="Moonsilk Logo" />
+            </div>
+
+            <nav class="sidebar__nav">
+                <a href="dashboard.html" class="sidebar__nav-item">
+                    <span class="sidebar__nav-highlight"></span>
+                    <i class="bi bi-house-door-fill sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">Dashboard</span>
+                </a>
+
+                <a href="course-list.html" class="sidebar__nav-item sidebar__nav-item--active">
+                    <i class="bi bi-book-fill sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">My Courses</span>
+                </a>
+
+                <a href="practice.html" class="sidebar__nav-item">
+                    <i class="bi bi-pencil-fill sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">Practice</span>
+                </a>
+
+                <a href="community.html" class="sidebar__nav-item">
+                    <i class="bi bi-globe2 sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">Community</span>
+                </a>
+
+                <a href="progress.html" class="sidebar__nav-item">
+                    <i class="bi bi-bar-chart-line-fill sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">Progress</span>
+                </a>
+
+                <a href="settings.html" class="sidebar__nav-item">
+                    <i class="bi bi-gear-fill sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+            
+            <header class="header-bar">
+                <div class="d-flex align-items-center gap-2">
+                    <button class="header-hamburger d-lg-none" id="hamburgerBtn" aria-label="Toggle Menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                    
+                </div>
+
+                <div class="header-bar__user-area">
+                    <div class="position-relative notification-bell-box">
+                        <i class="bi bi-bell-fill fs-5 text-secondary"></i>
+                        <span class="badge-dot"></span>
+                    </div>
+                    <span class="header-bar__divider">|</span>
+                    
+                    <div class="dropdown">
+                        <div class="d-flex align-items-center gap-2 user-profile-trigger" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                            <div class="avatar-vector-box">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                            <span class="header-bar__username" id="displayName">User name</span>
+                            <i class="bi bi-chevron-down text-muted smaller"></i>
+                        </div>
+                        
+                        <ul class="dropdown-menu dropdown-menu-end custom-user-menu border-0 shadow mt-2">
+                            <li><a class="dropdown-item py-2" href="#"><span class="small">📚 Hồ sơ học tập</span></a></li>
+                            <li><a class="dropdown-item py-2" href="#"><span class="small">⚙️ Cài đặt tài khoản</span></a></li>
+                            <li><hr class="dropdown-divider opacity-50" /></li>
+                            <li><a class="dropdown-item py-2 text-danger fw-medium" href="#" id="btnLogout">🔑 Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <main class="content-body course-list-body">
+                
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+                    <h1 class="page-title m-0">My Courses</h1>
+                    <div class="search-box-wrap">
+                        <i class="bi bi-search search-icon"></i>
+                        <input type="text" id="courseSearchInput" class="course-search-input" placeholder="Search your courses...">
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="filter-bar-wrap mb-4">
+                    <ul class="filter-bar" id="courseFilters">
+                        <li class="filter-item active" data-filter="all">All</li>
+                        <li class="filter-item" data-filter="vocabulary">Vocabulary</li>
+                        <li class="filter-item" data-filter="listening">Listening</li>
+                        <li class="filter-item" data-filter="grammar">Grammar</li>
+                        <li class="filter-item" data-filter="speaking">Speaking</li>
+                        <li class="filter-item" data-filter="reading">Reading</li>
+                        <li class="filter-item" data-filter="writing">Writing</li>
+                        <li class="filter-item" data-filter="pronunciation">Pronunciation</li>
+                    </ul>
+                </div>
+
+                <!-- Course Grid -->
+                <div class="row g-4" id="courseGrid">
+                    <!-- Course Item -->
+                    <div class="col-xl-3 col-lg-4 col-sm-6 course-card-wrapper" data-category="vocabulary">
+                        <div class="ui-card course-card" onclick="window.location.href='lesson-list.html'">
+                            <div class="course-card__img-box">
+                                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Vocabulary" class="course-card__img">
+                                <span class="course-card__badge">Vocabulary</span>
+                            </div>
+                            <div class="course-card__content">
+                                <h3 class="course-card__title">Essential Vocabulary</h3>
+                                <p class="course-card__desc">Master the most common English words.</p>
+                                <div class="course-card__meta">
+                                    <span class="lessons"><i class="bi bi-journal-text"></i> 12 Lessons</span>
+                                    <span class="level"><i class="bi bi-bar-chart"></i> Beginner</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Item -->
+                    <div class="col-xl-3 col-lg-4 col-sm-6 course-card-wrapper" data-category="grammar">
+                        <div class="ui-card course-card" onclick="window.location.href='lesson-list.html'">
+                            <div class="course-card__img-box">
+                                <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&q=80" alt="Grammar" class="course-card__img">
+                                <span class="course-card__badge badge-purple">Grammar</span>
+                            </div>
+                            <div class="course-card__content">
+                                <h3 class="course-card__title">Grammar Foundation</h3>
+                                <p class="course-card__desc">Build a solid English grammar foundation.</p>
+                                <div class="course-card__meta">
+                                    <span class="lessons"><i class="bi bi-journal-text"></i> 6 Lessons</span>
+                                    <span class="level"><i class="bi bi-bar-chart"></i> Beginner</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Item -->
+                    <div class="col-xl-3 col-lg-4 col-sm-6 course-card-wrapper" data-category="speaking">
+                        <div class="ui-card course-card" onclick="window.location.href='lesson-list.html'">
+                            <div class="course-card__img-box">
+                                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&q=80" alt="Speaking" class="course-card__img">
+                                <span class="course-card__badge badge-orange">Speaking</span>
+                            </div>
+                            <div class="course-card__content">
+                                <h3 class="course-card__title">Fluent Speaking</h3>
+                                <p class="course-card__desc">Practice speaking with confidence.</p>
+                                <div class="course-card__meta">
+                                    <span class="lessons"><i class="bi bi-journal-text"></i> 15 Lessons</span>
+                                    <span class="level"><i class="bi bi-bar-chart"></i> Advanced</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Item -->
+                    <div class="col-xl-3 col-lg-4 col-sm-6 course-card-wrapper" data-category="listening">
+                        <div class="ui-card course-card" onclick="window.location.href='lesson-list.html'">
+                            <div class="course-card__img-box">
+                                <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=400&q=80" alt="Listening" class="course-card__img">
+                                <span class="course-card__badge badge-blue">Listening</span>
+                            </div>
+                            <div class="course-card__content">
+                                <h3 class="course-card__title">Active Listening</h3>
+                                <p class="course-card__desc">Improve your listening comprehension.</p>
+                                <div class="course-card__meta">
+                                    <span class="lessons"><i class="bi bi-journal-text"></i> 10 Lessons</span>
+                                    <span class="level"><i class="bi bi-bar-chart"></i> Intermediate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Course Item -->
+                    <div class="col-xl-3 col-lg-4 col-sm-6 course-card-wrapper" data-category="reading">
+                        <div class="ui-card course-card" onclick="window.location.href='lesson-list.html'">
+                            <div class="course-card__img-box">
+                                <img src="https://images.unsplash.com/photo-1474366521946-c3d4b507abf2?w=400&q=80" alt="Reading" class="course-card__img">
+                                <span class="course-card__badge badge-pink">Reading</span>
+                            </div>
+                            <div class="course-card__content">
+                                <h3 class="course-card__title">Speed Reading</h3>
+                                <p class="course-card__desc">Read faster and understand better.</p>
+                                <div class="course-card__meta">
+                                    <span class="lessons"><i class="bi bi-journal-text"></i> 8 Lessons</span>
+                                    <span class="level"><i class="bi bi-bar-chart"></i> Beginner</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/auth.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/course-list.js"></script>
+</body>
+</html>
