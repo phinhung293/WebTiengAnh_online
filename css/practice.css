@@ -1,0 +1,98 @@
+/* practice.css */
+
+.page-body {
+    padding: 24px 30px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.bg-purple { background-color: #c59fff !important; }
+.text-purple { color: #9333ea !important; }
+.btn-purple { background-color: #c59fff; border: none; }
+.btn-purple:hover { background-color: #b388ff; }
+
+.btn-outline-purple { border: 1px solid #c59fff; color: #9333ea; background: transparent; }
+.btn-outline-purple:hover { background: #f3e8ff; color: #9333ea; }
+
+.btn-pink { background-color: #ff98cc; color: white; border: none; }
+.btn-pink:hover { background-color: #ff80b3; color: white; }
+
+.btn-shadow { box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.btn-shadow:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,0.12); }
+
+.bg-gradient-pastel {
+    background: linear-gradient(135deg, rgba(255, 235, 245, 0.7), rgba(243, 232, 255, 0.7));
+}
+
+/* Flashcard Styles */
+.flashcard-container {
+    background: url('https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=1000') center/cover no-repeat;
+    position: relative;
+    border-radius: 24px;
+}
+.flashcard-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border-radius: 24px;
+}
+
+.flashcard-container > * {
+    position: relative;
+    z-index: 1;
+}
+
+.flashcard {
+    background-color: transparent;
+    width: 100%;
+    max-width: 450px;
+    height: 280px;
+    perspective: 1000px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(130, 80, 150, 0.15);
+    padding: 30px;
+    background: white;
+}
+
+.flashcard-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, #f5edff, #fff0f5);
+}
+
+.word-en { font-size: 36px; font-weight: 700; color: #2d2d2d; margin-bottom: 8px; }
+.word-type { font-size: 16px; font-style: italic; color: #888; }
+
+.word-vi { font-size: 28px; font-weight: 700; color: #9333ea; }
+.word-desc { font-size: 15px; color: #555; line-height: 1.5; }

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moonsilk – Practice</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/practice.css" />
+</head>
+<body>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar__logo-wrap">
+                <img class="sidebar__logo-img" src="../img/logo.png" alt="Moonsilk Logo" />
+            </div>
+
+            <nav class="sidebar__nav">
+                <a href="dashboard.html" class="sidebar__nav-item">
+                    <i class="bi bi-house-door-fill sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">Dashboard</span>
+                </a>
+
+                <a href="course-list.html" class="sidebar__nav-item">
+                    <i class="bi bi-book-fill sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">My Courses</span>
+                </a>
+
+                <a href="practice.html" class="sidebar__nav-item sidebar__nav-item--active">
+                    <span class="sidebar__nav-highlight"></span>
+                    <i class="bi bi-pencil-fill sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">Practice</span>
+                </a>
+
+                <a href="community.html" class="sidebar__nav-item">
+                    <i class="bi bi-globe2 sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">Community</span>
+                </a>
+
+                <a href="progress.html" class="sidebar__nav-item">
+                    <i class="bi bi-bar-chart-line-fill sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">Progress</span>
+                </a>
+
+                <a href="settings.html" class="sidebar__nav-item">
+                    <i class="bi bi-gear-fill sidebar__nav-icon-v"></i>
+                    <span class="sidebar__nav-label">Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+            
+            <header class="header-bar">
+                <div class="d-flex align-items-center gap-2">
+                    <button class="header-hamburger d-lg-none" id="hamburgerBtn" aria-label="Toggle Menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                    
+                    <div class="header-bar__search">
+                        <i class="bi bi-search text-muted me-2"></i>
+                        <input class="header-bar__search-input" type="search" placeholder="Search for lessons, courses..." />
+                    </div>
+                </div>
+
+                <div class="header-bar__user-area">
+                    <div class="position-relative notification-bell-box">
+                        <i class="bi bi-bell-fill fs-5 text-secondary"></i>
+                        <span class="badge-dot"></span>
+                    </div>
+                    <span class="header-bar__divider">|</span>
+                    
+                    <div class="dropdown">
+                        <div class="d-flex align-items-center gap-2 user-profile-trigger" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                            <div class="avatar-vector-box">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                            <span class="header-bar__username" id="displayName">User name</span>
+                            <i class="bi bi-chevron-down text-muted smaller"></i>
+                        </div>
+                        
+                        <ul class="dropdown-menu dropdown-menu-end custom-user-menu border-0 shadow mt-2">
+                            <li><a class="dropdown-item py-2" href="profile.html"><span class="small">📚 Hồ sơ học tập</span></a></li>
+                            <li><a class="dropdown-item py-2" href="account-settings.html"><span class="small">⚙️ Cài đặt tài khoản</span></a></li>
+                            <li><hr class="dropdown-divider opacity-50" /></li>
+                            <li><a class="dropdown-item py-2 text-danger fw-medium" href="#" id="btnLogout">🔑 Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <main class="content-body page-body">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="page-title m-0">Practice Arena</h1>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <!-- Flashcard Area -->
+                        <div class="ui-card p-4 flashcard-container text-center">
+                            <div class="flashcard mb-4" id="flashcard">
+                                <div class="flashcard-inner">
+                                    <div class="flashcard-front">
+                                        <h2 class="word-en">Serendipity</h2>
+                                        <p class="word-type">noun</p>
+                                        <i class="bi bi-volume-up text-pink fs-4 mt-3" style="cursor: pointer;"></i>
+                                    </div>
+                                    <div class="flashcard-back">
+                                        <h2 class="word-vi">Sự tình cờ may mắn</h2>
+                                        <p class="word-desc mt-3">Sự phát hiện ra những điều thú vị hoặc có giá trị một cách tình cờ.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flashcard-controls d-flex justify-content-center gap-3">
+                                <button class="btn btn-light rounded-pill px-4 btn-shadow" id="btnPrev">
+                                    <i class="bi bi-arrow-left"></i> Previous
+                                </button>
+                                <button class="btn btn-pink rounded-pill px-4 btn-shadow" id="btnFlip">
+                                    <i class="bi bi-arrow-repeat"></i> Flip Card
+                                </button>
+                                <button class="btn btn-purple rounded-pill px-4 btn-shadow text-white" id="btnNext">
+                                    Next <i class="bi bi-arrow-right"></i>
+                                </button>
+                            </div>
+                            <p class="text-muted small mt-3">Card 1 of 10 in "Advanced Vocabulary"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="ui-card p-4">
+                            <h3 class="fs-5 fw-bold mb-3">Daily Challenges</h3>
+                            <div class="challenge-item mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="fw-semibold fs-6">Learn 10 new words</span>
+                                    <span class="text-purple fw-bold">7/10</span>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-purple" role="progressbar" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="challenge-item mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="fw-semibold fs-6">Speaking Practice</span>
+                                    <span class="text-pink fw-bold">0/15 m</span>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-pink" role="progressbar" style="width: 0%"></div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-outline-purple w-100 mt-2 rounded-pill">View all challenges</button>
+                        </div>
+                        
+                        <div class="ui-card p-4 mt-4 text-center bg-gradient-pastel">
+                            <i class="bi bi-trophy-fill text-warning" style="font-size: 3rem;"></i>
+                            <h4 class="mt-2 fw-bold">Current Streak</h4>
+                            <h2 class="text-purple fw-bold mb-0">5 Days</h2>
+                            <p class="text-muted small mt-2">Practice today to keep it going!</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/auth.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Sidebar toggle for mobile
+            $('#hamburgerBtn').on('click', function() {
+                $(this).toggleClass('is-active');
+                $('#sidebar').toggleClass('is-open');
+                $('#sidebarOverlay').toggleClass('is-active');
+            });
+
+            $('#sidebarOverlay').on('click', function() {
+                $('#hamburgerBtn').removeClass('is-active');
+                $('#sidebar').removeClass('is-open');
+                $(this).removeClass('is-active');
+            });
+            
+            // Flashcard Flip
+            $('#btnFlip, #flashcard').on('click', function() {
+                $('#flashcard').toggleClass('flipped');
+            });
+        });
+    </script>
+</body>
+</html>
