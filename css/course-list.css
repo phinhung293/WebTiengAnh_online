@@ -171,23 +171,39 @@
     gap: 4px;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
+
     .course-list-body {
-        padding: 15px 12px;
+        padding: 16px;
     }
-    .filter-bar {
-        flex-wrap: nowrap;
-        padding-bottom: 4px;
+
+    .course-list-body > .d-flex:first-child {
+        flex-direction: column;
+        align-items: stretch !important;
     }
-    .filter-item {
-        padding: 6px 12px;
-        font-size: 12px;
+
+    .search-box-wrap {
+        max-width: 100%;
+        width: 100%;
     }
+
     .course-search-input {
-        width: 200px;
+        width: 100%;
     }
-    .course-card__img-box {
-        height: 140px;
-    }
+}
+.course-list-body {
+    overflow-x: hidden;
+}
+
+.filter-bar-wrap {
+    max-width: 100%;
+}
+.row.g-4 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.course-card-wrapper {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
 }

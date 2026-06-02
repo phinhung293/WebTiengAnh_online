@@ -118,10 +118,11 @@ body {
   z-index: 1;
 }
 
-/* ─── 2. MAIN WORKSPACE ─── */
 .main-wrapper {
   margin-left: var(--sidebar-w);
-  flex-grow: 1;
+  flex: 1;
+  min-width: 0;     /* QUAN TRỌNG */
+  width: 0;         /* QUAN TRỌNG */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
